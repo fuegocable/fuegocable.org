@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="30.905605mm"
+   height="22.490627mm"
+   viewBox="0 0 30.905606 22.490627"
+   version="1.1"
+   id="svg36309"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="logo-fuegocable-only-usb.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview36311"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.59164344"
+     inkscape:cx="-426.77732"
+     inkscape:cy="-44.790491"
+     inkscape:window-width="1554"
+     inkscape:window-height="836"
+     inkscape:window-x="46"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs36306" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     transform="translate(-156.42456,-116.06733)" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-156.42456,-116.06733)">
+    <path
+       id="rect6162-7-8-2-1-4-6-7-06-3"
+       style="fill:#ffb600;fill-opacity:1;stroke-width:22.5449"
+       d="m 605.21094,438.67969 a 14,14 0 0 0 -14,14 v 57.00195 a 14,14 0 0 0 14,14 h 46.66015 v -14.04102 c 0,-0.37121 -0.22688,-0.59765 -0.59765,-0.59765 h -0.41211 c -4.04742,0 -7.40415,-3.3568 -7.4043,-7.4043 V 463.4375 c 1.5e-4,-4.0475 3.35688,-7.39648 7.4043,-7.39648 h 0.50781 c 0.37089,0 0.59766,-0.22727 0.59766,-0.59766 v -16.76367 z m 46.66015,85.00195 v 0.002 h 6.80664 v -0.002 z m 6.80664,0 h 35.3418 a 14,14 0 0 0 14,-14 v -57.00195 a 14,14 0 0 0 -14,-14 h -35.24609 v 16.76367 c -1.5e-4,4.04712 -3.35688,7.39648 -7.4043,7.39648 h -0.50781 c -0.37077,0 -0.60547,0.22727 -0.60547,0.59766 v 38.20117 c 0,0.37119 0.2347,0.59766 0.60547,0.59766 h 0.41211 c 4.04742,0 7.40414,3.35681 7.40429,7.40429 z M 610.37695,472.875 h 16.39844 a 2,2 0 0 1 2,2 v 14.51562 a 2,2 0 0 1 -2,2 h -16.39844 a 2,2 0 0 1 -2,-2 V 474.875 a 2,2 0 0 1 2,-2 z m 63.8086,0.17383 h 16.39843 a 2,2 0 0 1 2,2 v 14.51562 a 2,2 0 0 1 -2,2 h -16.39843 a 2,2 0 0 1 -2,-2 v -14.51562 a 2,2 0 0 1 2,-2 z"
+       transform="scale(0.26458333)"
+       inkscape:export-filename="/home/tomas/proyectos/fuegocable/assets/logo-fuegocable.png"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
+  </g>
+</svg>
