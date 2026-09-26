@@ -1,0 +1,100 @@
+# Docs
+
+## About
+
+### What is fuegocable?
+
+* Introduction
+
+### Motivation & Planned Obsolescence
+
+### How Can FireWire Audio Interfaces Be Used Today?
+
+* USB–ADAT Interfaces
+* Desktop PC + PCIe + Windows
+* Thunderbolt Adapters
+* Laptop PCIe Riser
+* Why You Can't Simply Adapt One Port to Another
+* Host Middleware (Embedded Linux FireWire-to-UAC)
+
+### FireWire vs. USB
+
+* Which Is Better, and When?
+* USB Full-Speed, High-Speed, USB 3.x, USB4, and Beyond
+
+### About the fuegocable Mod
+
+* Can Any Interface Be Modified?
+
+  * DICE
+  * BridgeCo
+  * FPGAs
+* Benefits and Trade-offs
+* Reverting the Mod & Why It Should Be Non-Destructive
+
+### The Future of fuegocable
+
+* Does fuegocable Receive Updates? Who Maintains It?
+* Modders across the galaxy
+* Extending fuegocable
+
+  * DSP
+  * Mixing
+  * Remote Control
+* Making the Modding Process Easier
+
+  * Developing a Custom Board
+  * Developing a Footprint Emulator
+
+## Technical Overview
+
+### How Does the Mod Work?
+
+### How Do You Modify an Audio Interface?
+
+* Reverse-Engineering a Board
+
+### How Can You Use an Unsupported Board?
+
+* XMOS
+* Non-XMOS Platforms
+
+  * RP2040
+  * STM32
+  * ESP32
+  * WCH
+
+### How Do Audio Drivers Work?
+
+* macOS
+* Linux
+* Windows
+
+## Modding Guides
+
+### PreSonus
+
+#### FireStudio Project
+
+* Support Level
+* Features
+* Modding Complexity
+* LEDs
+
+#### FP10
+
+### Focusrite
+
+#### Saffire
+
+## How to Contribute
+
+### Testing & Bug Reports
+
+### Research, Photos & Datasheets
+
+### Hardware
+
+### Software
+
+# Blog
