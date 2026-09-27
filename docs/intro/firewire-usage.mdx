@@ -4,14 +4,36 @@ sidebar_position: 2
 
 # How can Firewire audio interfaces be used today?
 
+en la actualidad no es imposible utilizar viejas interfaces de audio Firewire. para comprobarlo tan solo basta encender una pc de escritorio de hace algunos años, con su puerto Firewire disponible, windows XP y el correspondiente driver instalado para grabar o reproducir en una antigua versión de Pro Tools. sin embargo esto no resulta práctico. Windows XP, 7 y 8 están obsoletos hace tiempo, como así también diversas versiones de OS X. Conseguir los drivers puede ser muy dificil si el fabricante no los publica en su sitio. Lo mismo con software antiguo como versiones viejas de Protools. Además de la exposicion a amenzas informáticas que podemos exponernos descargando software de fuentes no confiables.
+
+Cada interfaz de audio Firewire tiene comportamientos diferentes y características diferentes. No todas son compatibles con las mismas placas PCI - Firewire, ni todas tienen drivers para las mismas versiones de sistemas operativos. Sin embargo hay algunos métodos que pueden explorarse para utilizar las interfaces en hardware actual, algo que de hecho puede resultar necesario si se intenta hacer ingeniería inversa a dicha interfaz, ya sea para agregar soporte de la misma en fuegocable o por cualquier otro motivo que sea
+
+## Desktop PC + PCI-Firewire + Windows/Hackintosh
+
+este método ya fue mencionado antes y consta de montar una pc de escritorio con una placa PCI-Firewire en su interior e instalar el sistema operativo y drivers necesarios. la principal contra de esta opción, por supuesto, es la portabilidad ya que, conforme fueron pasando los años, las laptops se han impuesto por sobre las pc de escritorio. pero es posible encontrar alguna interfaz de audio Firewire que aún tenga drivers disponibles para sistemas operativos actuales, aunque no es lo común.
+
 ## USB–ADAT Interfaces
 
-## Desktop PC + PCIe + Windows
+muchas de esas interfaces de audio Firewire pueden llegar a ofrecer también puertos ADAT. de ese conjunto de interfaces con ADAT, algunas permiten ser usadas de forma standalone y en esos reducidos casos donde no es necesario utilizar una pc host para configurar la interfaz, se pueden utilizar adaptadores USB - ADAT como por ejemplo la Digiface USB de RME.
+
+![Digiface USB RME](https://www.rme-usa.com/files/uploads/RME-Products/External/Digiface-USB.png)
+
+Puede pasar también que algunas interfaces de audio solo necesiten configurarse como standalone y precisen de una pc host con sistema operativo antiguo por única vez. Luego de realizada la configuración, ya puede utilizarse por ADAT sin necesitar de nuevo el uso de una PC antigua.
 
 ## Thunderbolt Adapters
 
+también mencionado con anterioridad, esta quizás es la alternativa más común en la escena y comentada en foros de internet. consta de utilizar ciertos adaptadores Thunderbol-Firewire y/o Firewire-Firewire para conectar las interfaces de audio a computadoras de Apple como Macbook y Mac Mini. En este caso también resulta necesario que el fabricante tenga drivers/software de control disponible para versiones actuales de OS X
+
 ## Laptop PCIe Riser
 
-## Why You Can't Simply Adapt One Port to Another
+una alternativa posible también es utilizar risers y conversores MiniPCIe a PCI para conectar una placa PCI - Firewire a través del puerto MiniPCIe que las laptops suelen tener ocupadas por placas Wifi/Bluetooth. Esta opción en teoría podría funcionar pero la portabilidad es cuestionable porque es necesario disponiblizar de forma externa ciertas señales del puerto PCI fuera del chasis de las laptops, además de que los riser suelen precisar fuentes de poder externas. en esta opción también es necesario contar con un driver/software de control disponible para la versión de sistema operativo que se ejecute en la laptop
 
 ## Host Middleware (Embedded Linux FireWire-to-UAC)
+
+esta alternativa es más teórica que práctica, pues desde la idea ya no resulta muy prometedora pero es digna de mencionar. existen diversas formas de utilizar puerto firewire con Single-Board-Computers como la raspberry pi 5 que tiene puerto PCI que quizás pueda utilizarse con un riser como si se tratase de una laptop o bien utilizando un módulo como el no tan viejo [Firehat](https://www.crowdsupply.com/computer-equipment-group/firehat) que dispone un puerto Firewire para dispositivos como raspberry pi 5 o Radxa ROCK 2F. tratandose de dispositivos con arquitectura ARM resulta en vano pensar algún método de ejecución de drivers oficiales de windows o mac pero existen proyectos de drivers para linux como los ya incluídos en ALSA, por lo que en teoría podría ser suficiente para conectar **algunas** interfaces de audio a la SBC (principalmente las basadas en chips DICE y BridgeCo). de esta manera, se podría también hacer uso de la característica USB Gadget del kernel de linux y así desarrollar una especie de puente Firewire - USB.
+
+**Pero** (y son muchos peros) hay que mencionar que los drivers de ALSA para interfaces Firewire no tienen la misma estabilidad que tienen otros drivers como el USB. Esto porque cuando era común utlizar interfaces de audio Firewire linux aún no estaba tan establecido como sistema operativo para sistemas de escritorio como ahora, por lo que el desarrollo no fue tan intenso como para el hardware actual.
+
+Además, por más que hay ejemplos de productos comerciales que hacen uso del USB Gadget de linux para transferir audio como por ejemplo los  AKAI MPC o las pedaleras Headrush, esos productos suelen funcionar como interfaces de audio estereo y no multicanal, por lo que tampoco resulta una opción muy prometedora para interfaces de audio de 4 u 8 canales in/out.
+
+De nuevo, esta no es una buena alternativa pero es necesario mencionarla para conocerla y entender si algo de esta idea puede ser planteado de otra forma en el futuro, o bien resulta inspirador para alguien que traiga una solución similar.
