@@ -2,8 +2,70 @@
 sidebar_position: 3
 ---
 
-# Firewire vs USB
+# Firewire vs. USB
 
-## Which Is Better, and When?
+A great deal has been said among musicians, technicians, and online about whether Firewire is better than USB, or about which of the two standards is superior. This section is not intended to change anyone's preferences or to question what a musician or technician may experience with their hardware and find useful for their art or work. Rather, the goal is to provide some clarity when comparing two audio interfaces.
 
-## USB Full-Speed, High-Speed, USB 3.x, USB4, and Beyond
+First, it is important to distinguish between differences in **Firewire and USB as communication standards between devices** and differences between two specific devices, regardless of which communication standard they use.
+
+If we focus specifically on the characteristics relevant to real-time digital audio transfer, both Firewire and USB provide isochronous transfer mechanisms. These mechanisms are designed to reserve bandwidth and perform transfers within defined time intervals, making them particularly suitable for applications such as real-time audio and video.
+
+However, the fact that both standards support isochronous transfers does not mean that they work internally in the same way, or that a Firewire audio interface and a USB audio interface will necessarily behave in the same way. The bus architecture, controller, device firmware, driver, and the way the operating system handles transfers can all have a significant impact on actual performance.
+
+## Differences between the standards
+
+There are substantial internal differences between USB and Firewire, but many of them concern how each standard organizes and manages communications at a low level. These differences do not, by themselves, determine the audio quality an interface can provide, nor do they necessarily imply an audible difference.
+
+USB was designed as a much more general-purpose bus and is used for a very wide variety of devices. In addition to real-time audio transfer, it can carry data for storage devices, input devices such as keyboards and MIDI controllers, cameras, network interfaces, and many other types of peripherals.
+
+Firewire was also designed as a general-purpose bus and supports different types of devices and transfers. However, during the years when both standards were widely used, Firewire became particularly prominent in certain markets, including audio interfaces and video cameras.
+
+Another important difference lies in how the two standards handle certain aspects of bus communication. Firewire was designed with direct memory access (DMA) capabilities and device-to-device communication mechanisms that made it possible to build implementations with relatively low CPU overhead. USB, on the other hand, uses a host-centered architecture: the host coordinates transfers, and devices do not control the bus in the same way.
+
+These architectural differences contributed to Firewire's strong reputation for low-latency audio applications. However, they do not mean that a USB interface necessarily has higher latency.
+
+## Bandwidth
+
+Firewire 400 provides a signaling rate of 400 Mbit/s, while USB 1.1 Full-Speed provides 12 Mbit/s. In this respect, Firewire 400 has considerably more transfer capacity than USB Full-Speed.
+
+USB 2.0 High-Speed, however, reaches 480 Mbit/s, while the first generation of USB 3.0 reaches 5 Gbit/s. Therefore, a comparison based solely on the maximum bus speed no longer favors Firewire when compared with later generations of USB.
+
+Furthermore, the nominal bus speed is not by itself a measure of latency or of the actual capacity of an audio interface. The protocol being used, packet size and frequency, the driver, the USB or Firewire controller, and the device design all play an important role in determining real-world performance.
+
+## Latency and real-time audio
+
+Firewire is often described as being capable of achieving lower latency than USB, particularly when compared with early generations of USB audio interfaces. There is some historical basis for this claim, but it is important not to confuse the characteristics of the standard with those of a particular implementation.
+
+In USB, audio transfer is defined through the **USB Audio Class (UAC)** specification. UAC 1.0 was originally designed around USB Full-Speed and uses 1 ms service intervals. UAC 2.0, on the other hand, was designed to also support High-Speed operation and can use service intervals as short as 0.125 ms in this mode.
+
+This means that, from the bus's perspective, a USB 2.0 High-Speed/UAC 2.0 implementation can perform audio transfers at very short intervals. However, **0.125 ms does not mean that a UAC 2.0 interface has an overall latency of 0.125 ms**. The latency ultimately experienced by the user also depends on device buffering, the driver, the operating system, the DAW, and other parts of the audio path. But USB standard itself provides very low latency for sample transfer.
+
+One historically relevant characteristic of Firewire was its direct memory access architecture and its ability to perform isochronous transfers with relatively low CPU overhead. The Firewire controller could use DMA to move data between the bus and system memory, reducing the amount of work required from the CPU. But USB also uses DMA in modern host controllers.
+
+Historically, these characteristics helped Firewire interfaces achieve small buffers and low latency with relatively low CPU overhead. However, improvements in USB hardware, host controllers, drivers, and operating systems have made it possible for USB audio interfaces to operate at very low latencies as well.
+
+For this reason, it is no longer accurate to state that Firewire inherently provides lower latency than USB.
+
+## Is Firewire better than USB for audio?
+
+In general, **the connection standard alone is not enough to determine whether one audio interface is better than another**.
+
+A Firewire interface can have an excellent implementation and provide very low latency, while another Firewire interface may have poor drivers or a less efficient implementation. The same applies to USB.
+
+When comparing two specific audio interfaces, it is therefore more useful to examine their complete implementation: A/D and D/A converters, clocking, internal architecture, drivers, minimum buffer size, stability, channel count, supported sample rates, and other features.
+
+This leads to another discussion, which is outside the scope of this section: many older audio interfaces used Firewire simply because it was the standard available at the time. Some of them may offer different features from modern USB interfaces. Determining which one is better requires comparing their characteristics as audio devices — including their conversion, preamplification, frequency response, noise, distortion, and overall capabilities — rather than simply comparing the connectivity standard used to connect them to the computer.
+
+## A note on USB versions
+
+Since this section discusses some differences between USB and Firewire, it is also worth clarifying the relevance of the different USB generations to audio.
+
+For most professional audio applications, **USB 2.0 High-Speed already provides enough bandwidth for a considerable number of channels**. USB Audio Class 2.0 allows High-Speed audio transfers with 0.125 ms service intervals, while also supporting significantly higher channel counts and sample rates than UAC 1.0.
+
+The nominal bandwidth of USB 2.0 High-Speed is 480 Mbit/s. However, this number cannot be directly converted into a maximum number of audio channels, because some bandwidth is consumed by the protocol itself and there are also specific limits on isochronous transfers.
+
+As a reference, a USB 2.0 High-Speed implementation can transfer at least 60 input and 60 output channels at 96 kHz/24-bit. The actual number of channels also depends on how samples are packed, which endpoints are used, and the rest of the implementation.
+
+For most professional recording and playback systems, these capabilities are more than sufficient. USB 3.x primarily provides substantially greater transfer capacity, which is useful for devices that need to move large amounts of data. In audio applications, this can allow higher channel counts or certain combinations of sample rate and bit depth, but **it does not inherently improve audio quality or automatically reduce latency**.
+
+In other words, for an audio interface with, for example, 8, 16, 32, or even many more inputs and outputs, USB 2.0 can provide sufficient capacity without requiring a later USB generation solely for bandwidth reasons.

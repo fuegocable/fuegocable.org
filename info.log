@@ -8,16 +8,16 @@
 
 ### Motivation & Planned Obsolescence
 
-### How Can FireWire Audio Interfaces Be Used Today?
+### How can firewire audio interfaces be used today?
 
-* USB–ADAT Interfaces
+* USB-ADAT Interfaces
 * Desktop PC + PCIe + Windows
 * Thunderbolt Adapters
 * Laptop PCIe Riser
 * Why You Can't Simply Adapt One Port to Another
-* Host Middleware (Embedded Linux FireWire-to-UAC)
+* Host Middleware (Embedded Linux Firewire-to-UAC)
 
-### FireWire vs. USB
+### Firewire vs. USB
 
 * Which Is Better, and When?
 * USB Full-Speed, High-Speed, USB 3.x, USB4, and Beyond

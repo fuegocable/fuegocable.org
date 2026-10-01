@@ -4,20 +4,74 @@ sidebar_position: 5
 
 # The future of fuegocable
 
-## Does fuegocable Receive Updates? Who Maintains It?
+## Does fuegocable get updates? Who maintains it?
 
-## Modders across the galaxy
+fuegocable is an **open-source project**. It was originally created by someone who wanted to modify their own Firewire audio interface and, after spending a considerable amount of time reverse engineering, researching, developing, and programming, decided that the work would be more valuable if it were shared online.
+
+The idea is to make the information available to anyone who may find it useful, while opening the project's development and discussions to anyone who wants to get involved.
+
+After all, most of what we develop is built on top of someone else's work, knowledge, or ideas. Sharing what we learn and create makes it possible for someone else to use it as a starting point for their own projects.
+
+fuegocable is also a **non-profit project**. There are currently no people or companies working on it full-time, which means that new features, support for additional audio interfaces, and bug fixes will not necessarily be developed quickly.
+
+As long as there are people willing and motivated to maintain the project, the goal will be to address the needs that arise from those using the fuegocable mod and to keep expanding the project whenever time and resources allow.
+
+## Modders across the world
+
+The idea behind fuegocable is to develop modification processes that are **efficient, affordable, and easy to reproduce**, so that anyone can modify their own interface or even offer modification services to other people anywhere in the world.
+
+The project should not create dependence on a particular company or proprietary service. Instead, fuegocable aims to develop its own open-source solutions so that anyone can reproduce, adapt, repair, or improve them when needed.
+
+Hopefully, one day this will grow into a community of modders spread across the world, bringing old Firewire interfaces back to life and giving them the opportunity to create new music, new songs, and new sounds.
 
 ## Extending fuegocable
 
-### DSP
+Because fuegocable is built around an open-source firmware and hardware platform, we have access to the code required to operate the modified interfaces. This gives us the possibility of expanding their functionality in the future — hopefully sooner rather than later.
 
-### Mixing
+Some possible directions include:
 
-### Remote Control
+### DSP & signal routing
 
-## Making the Modding Process Easier
+Internal mixing and signal routing for zero- or near-zero-latency monitoring, potentially with real-time processing such as EQ, compression, gating, and other effects.
 
-### Developing a Custom Board
+### Remote control
 
-### Developing a Footprint Emulator
+The DSP and mixer could be exposed through USB HID or another open control protocol, allowing desktop control applications to be developed.
+
+The same approach could also make it possible to connect the interface to other USB hosts, such as a Raspberry Pi or a USB-capable ESP32 platform, opening the door to standalone interfaces controlled over Wi-Fi or Bluetooth.
+
+In other words: **an XR18, but DIY.**
+
+### An open-source audio interface
+
+Why stop at modifying existing interfaces?
+
+Once the necessary hardware and firmware infrastructure exists, there is no reason why the project could not eventually develop a completely open-source audio interface of its own — with custom firmware designed to be hackable, extensible, and fully documented.
+
+## Making the modding process easier
+
+### Custom open-source XMOS board
+
+Another long-term goal is to make the modification process increasingly systematic and resistant to mistakes, while avoiding unnecessary dependence on proprietary PCB designs.
+
+One important step toward this goal would be developing a **dedicated, open-source XMOS controller board** for fuegocable. There are already several open hardware XMOS designs available that could potentially serve as starting points for a board specifically designed around the project's requirements.
+
+A few examples of open-source (we must check their licenses) XMOS based UAC devices available on the internet:
+- [ddabidov/Headphone-DAC-AMP](https://github.com/ddabidov/Headphone-DAC-AMP)
+- [slerpxcq/openuac2_hw](https://github.com/slerpxcq/openuac2_hw)
+- [youheng7185/xmos_xu316_cs43131_usb_aud](https://github.com/youheng7185/xmos_xu316_cs43131_usb_aud)
+- [ptc22336/XU316-1024-QF60B_EVM](https://oshwhub.com/ptc22336/XU316-1024-QF60B_EVM)
+
+### An interposer or footprint emulator
+
+Another important step would be developing a **footprint emulator / interposer** to simplify the replacement of the original audio-interface controller without the need solder wires to various points on the PCB.
+
+The idea would be to design a small flexible PCB with a modified footprint on one side that emulates the original controller IC and can be installed in its place. The other side would provide a multipin connector for a flex cable connecting the interface's original PCB to the fuegocable controller board containing the XMOS device.
+
+Instead of simply replacing the original IC, the flex PCB would route the signals from the original footprint to a multipin connector. A separate flex cable could then connect this adapter to the fuegocable XMOS controller board.
+
+This would make the physical modification much faster and more reproducible. Once the hardware connections and firmware for a particular interface have been reverse engineered, performing the modification could become largely a matter of soldering the appropriate adapter and loading the corresponding firmware. The concept is somewhat similar to techniques used in the console modchip scene, where an adapter or interposer allows additional hardware to be installed without permanently modifying the original PCB. Examples include projects such as PicoFly and Stellar XboxHD+.
+
+<img src="https://support.makemhz.com/assets/images/Step3-Flex-Installed_rev_6-ee1087ed132eb076b8bd22305e240ec5.png" alt="Stellar XboxHD+" width="1071" height="920" />
+
+The remaining complexity would then live mostly in software: the firmware would know how to initialize the interface, configure its converters and peripherals, handle its clocks and digital audio streams, and expose the resulting hardware as a USB audio device.

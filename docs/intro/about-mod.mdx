@@ -2,16 +2,102 @@
 sidebar_position: 4
 ---
 
-# About the fuegocable mod
+# About the fuegocable Mod
 
-## Can Any Interface Be Modified?
+The modification proposed by fuegocable is based on replacing the device that acts as the main controller of an audio interface, allowing the new controller to communicate directly with the digital audio signals coming from the converters and transfer them over USB. The modification also requires implementing the necessary configuration and control of the relevant integrated circuits and peripherals.
 
-### DICE
+This requires reverse engineering the original PCB in order to identify signals such as digital audio buses (I2S/TDM), codec and peripheral control buses (I2C/SPI), GPIO signals required to configure or enable other components, clock signals, and other connections necessary for the interface to operate.
 
-### BridgeCo
+The fuegocable mod therefore requires a thorough reverse-engineering analysis of the interface being modified. This can be a significant amount of work, but this is precisely one of the project's goals: to provide a place where the documentation required to modify different audio interfaces can be shared, reproduced, and expanded upon.
 
-### FPGAs
+## USB-connected controller
 
-## Benefits and Trade-offs
+The mod requires a controller with enough hardware resources to connect to the audio interface's existing components, while also providing USB connectivity and a stable implementation of USB Audio Class 2.0.
 
-## Reverting the Mod & Why It Should Be Non-Destructive
+At the moment, fuegocable is based on the **XMOS xcore family** for this purpose. This choice was made after investigating several available alternatives, including STM32 with USBX, TinyUSB, RP2040/RP2350, Teensy, and WCH solutions.
+
+XMOS provides an open-source USB Audio framework called **lib_xua**, which is specifically designed for implementing USB Audio Class devices. It supports UAC 1.0 and UAC 2.0, high-speed USB, asynchronous USB audio, and interfaces such as I2S/TDM. XMOS also provides reference hardware and complete example applications for its xcore-200 and xcore.ai devices.
+
+This makes XMOS particularly suitable for fuegocable: rather than developing an entire USB Audio implementation from scratch, the project can use a mature audio framework and concentrate its development effort on interfacing the new controller with the original hardware.
+
+The choice of XMOS should therefore be understood as a design decision made by the fuegocable project, rather than as a claim that XMOS is the only suitable solution. Other microcontrollers and processors can also implement USB Audio, but they may require different levels of development effort depending on the desired channel count, latency, clocking architecture, digital audio interfaces, and operating-system compatibility.
+
+Furthermore, XMOS proves to be sufficient for a great many commercial projects from various brands. Its chips can be found in USB audio interfaces from brands such as SSL, Behringer, Focusrite, PreSonus, Apogee, and many more.
+
+## Which interfaces can be modified?
+
+fuegocable was originally developed after successfully modifying a **PreSonus Firestudio Project**. At the moment (year 2026), this is the only interface for which the complete modification has been documented.
+
+However, the project was designed from the beginning with the intention of extending the modification to other interfaces.
+
+As a general starting point, many Firewire audio interfaces can be understood as containing several functional blocks:
+
+* Main controller / Firewire audio interface IC
+* Firewire PHY
+* External DSP, where applicable
+* ADC and DAC converters
+* User interface components such as LEDs, VU meters, displays, rotary encoders, and switches
+* Clock generation and synchronization circuitry
+* Configuration and control buses such as I2C and SPI
+* Other supporting logic and GPIO
+
+Since the fuegocable mod replaces the main controller, one useful way of categorizing Firewire interfaces for the purposes of this project is according to the type of controller they use:
+
+* **Common controller ICs**, such as DICE-family and BridgeCo devices
+* **Custom FPGA-based architectures**
+
+Interfaces using widely adopted controller families such as DICE or BridgeCo are particularly interesting because some of the knowledge obtained from one interface may be transferable to another interface using the same controller.
+
+For example, different products may share the same controller architecture even when their analog sections, converters, clocking, or peripheral configuration differ. This can make it possible to reuse part of the reverse-engineering work and firmware architecture across several models.
+
+FPGA-based interfaces, on the other hand, may require more model-specific analysis because a larger portion of their behavior can be implemented through custom logic. This can make them more labor-intensive to reverse engineer and document.
+
+## How generalizable is the mod?
+
+In general, many Firewire audio interfaces can potentially be modified, but each one requires reverse engineering to determine how the modification should be implemented: which signals need to be connected, where they are located on the PCB, which components need to be replaced or reconfigured, and what initialization and configuration routines must be implemented in the XMOS firmware.
+
+As more interfaces are reverse engineered, the process of analyzing new interfaces should become progressively easier. This is particularly true when several interfaces share the same controller IC or a similar hardware architecture.
+
+The goal of fuegocable is therefore not simply to document individual modifications, but to build a body of knowledge that makes subsequent modifications increasingly easier to understand and reproduce.
+
+## Benefits and drawbacks of the mod
+
+This is an important question to ask before modifying an interface: **is the modification actually worthwhile?**
+
+Interfaces using common controller families such as DICE or BridgeCo can be particularly attractive because some of the reverse-engineering work may be transferable to other interfaces using the same controller architecture. This could make it possible to develop modifications that are increasingly stable, reusable, and compatible across multiple models.
+
+FPGA-based interfaces may require substantially more model-specific analysis. Each one may require a different approach to understanding its digital architecture, which can make the development process slower and the resulting modification more complex.
+
+Another important consideration is whether the interface is actually difficult to use with its existing connection method. If an interface still works reliably with Firewire on the operating systems and hardware available to the user, converting it to USB may provide relatively little practical benefit.
+
+The value of the modification also depends on the interface itself. If the interface is rare or difficult to replace, the risks involved in reverse engineering and modifying it should be considered carefully. Firewire audio interfaces are no longer a current product category, and many of the components used in older designs may now be obsolete or difficult to source.
+
+These interfaces can nevertheless contain very good analog and digital designs. Preserving the original hardware is therefore an important consideration when deciding whether to modify one.
+
+Another factor is the functionality that the original interface provides. Because the fuegocable mod involves implementing the required functionality in new firmware that will run in the XMOS chip, interfaces with more complex clocking, synchronization, higher sample rates, multiple digital interfaces, or other advanced features may require considerably more work.
+
+Clocking deserves particular attention. If the original interface supports multiple clock sources, very high sample rates, external synchronization, or other clock-dependent functions, the corresponding signals must be analyzed and reproduced carefully. Poor clock implementation can introduce jitter, signal-integrity problems, or synchronization failures.
+
+For this reason, the complexity of the original interface should be considered before starting a modification.
+
+## Reverting the mod: why fuegocable should be non-destructive
+
+Regardless of how much care an individual owner chooses to give their equipment, we should be conscious of the technological artifacts we are working with.
+
+Firewire is no longer a current interface standard for new audio products, and the audio interfaces built around it are now older pieces of technology. They are part of the history of digital audio technology and of the tools used by musicians, recording engineers, and technicians.
+
+For this reason, fuegocable aims to make its modifications **reversible whenever reasonably possible**.
+
+The basic principles are:
+
+* Do not make irreversible physical modifications to the original equipment. Do not drill holes, cut the PCB, or make permanent chassis modifications as part of the fuegocable installation.
+* Do not damage the original components removed from the interface. They should remain usable if someone later wants to restore the original Firewire functionality.
+* Keep all removed components together with the original interface. They should be stored in a labeled package or small bag and kept in a safe place inside the enclosure or together with the device so that they cannot easily be lost.
+* Document the original location and orientation of removed components whenever relevant. Photographs and notes can be valuable when restoring the original hardware.
+* Preserve any original firmware, configuration data, or other information that may be necessary for restoration.
+
+A working DICE or BridgeCo controller, or an original flash memory containing the factory firmware, may be difficult to source today and could become even more difficult to obtain in the future. Keeping these parts with the original interface can therefore make a future restoration possible.
+
+Of course, any physical modification an owner wishes to make to their own equipment remains their choice. Someone may want to drill, paint, or otherwise customize their interface. The important principle for fuegocable is that **none of these irreversible modifications should be required to perform the mod**.
+
+The fuegocable modification should add a new way of using the interface without unnecessarily destroying the old one.

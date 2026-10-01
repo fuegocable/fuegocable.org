@@ -4,10 +4,33 @@ sidebar_position: 1
 
 # What is fuegocable?
 
-fuegocable is an open project for everyone and non-profit that seeks to be a source of documentation and tools to modify audio interfaces with old or obsolete physical connections (such as Firewire) by adding USB connectivity to be able to use them with current hosts such as laptops with Windows, Mac OS X, Linux, Android phones, iPhones or any host that is USB Audio Class Compliant.
+:::note
 
-Many audio interfaces from a few years ago offered only Firewire connection (some could also bring ADAT or SPDIF). Many of those interfaces depend their operation on the host having a Firewire port and being able to run drivers that stopped being updated for modern operating systems. There are some options to use that interfaces with PCs today, but it is usually a laborious task, exclusive to desktop PCs or laptops with Thunderbolt and that sometimes needs old versions of operating systems to run the drivers without problems.
+The project is still in the alpha stage. For now, only the Presonus Firestudio Project interface has been successfully modified. More models will be added over time as they undergo reverse engineering.
 
-fuegocable focuses on modifying audio interfaces to remove their main microcontroller that is responsible for configuring and transmitting digital audio to and from audio codecs through Firewire, to use another microcontroller that performs the same functions but implementing USB Audio Client to obtain the greatest possible compatibility with any operating system that implements USB Audio Host (Windows, Linux, OS X, iOS, Android, etc).
+:::
 
-This website hosts the necessary documentation to understand the operation of the fuegocable mod and its characteristics as well as the guides to modify the interfaces supported by the project. In addition, due to its open source nature, the site is also a place where the reverse engineering process of not yet supported interfaces can be centralized by contributing content, documentation and experiences in a collective and community way.
+fuegocable is an open, non-profit project for everyone interested in giving new life to audio interfaces with old or obsolete connectivity standards, such as Firewire.
+
+The project provides documentation, tools, and hardware and software resources for modifying these interfaces to add USB connectivity, allowing them to be used with modern computers and other USB Audio Class-compatible hosts, including Windows, macOS, Linux, Android, iOS, and other platforms that provide appropriate USB Audio Class support.
+
+Many audio interfaces from previous generations offered Firewire as their primary or only computer connection. Some also provided digital connections such as ADAT or S/PDIF, but their main audio transport and configuration still depended on Firewire.
+
+As described in [How can firewire audio interfaces be used today?](/docs/intro/firewire-usage.mdx), there are several ways to keep these interfaces working with modern computers. However, they often involve legacy computers, specific Firewire PCI cards, Thunderbolt adapters, discontinued drivers, or older operating systems. These solutions can work, but they are not always practical, portable, or easy to reproduce.
+
+fuegocable takes a different approach. Instead of adapting a modern computer to the old interface, the project focuses on modifying the interface itself. The basic idea is to replace or bypass its original main controller — the part responsible for communicating with the host computer and managing the digital audio connection between the computer and the interface's audio converters — and replace it with a modern controller capable of implementing USB Audio Class.
+
+This allows the existing audio hardware — including its converters, analog circuitry, and other components — to be reused while replacing the obsolete computer connection with a modern USB interface.
+
+The exact modification depends on the architecture of each audio interface. Reverse engineering is therefore an important part of the project. This may involve identifying digital audio buses such as I2S or TDM, control interfaces such as I2C or SPI, GPIO connections, clock signals, and the way the original controller communicates with the rest of the hardware.
+
+The goal is not simply to make one particular interface work over USB, but to document a process that can be understood, reproduced, adapted, and improved by others.
+
+This website hosts the documentation needed to understand how the fuegocable mod works, the characteristics and limitations of the approach, and the guides for modifying interfaces supported by the project.
+
+Because fuegocable is open source, the website also serves as a place to document the reverse-engineering process of interfaces that are not yet supported. Schematics, measurements, firmware, experiments, hardware designs, and practical experiences can all become part of the project.
+
+The idea is that knowledge should not have to be rediscovered for every interface from scratch. Someone may reverse-engineer one interface today, someone else may recognize the same controller or architecture in another interface tomorrow, and together those pieces of knowledge can make the next modification considerably easier.
+
+In this way, fuegocable is not only a way of converting old Firewire interfaces to USB. It is an attempt to build an open, community-driven body of knowledge around the hardware we already have — and to keep that hardware making music for many more years.
+
