@@ -1,7 +1,50 @@
+---
+sidebar_position: 2
+---
+
 # How do audio drivers work?
 
-## macOS
+This section explains how the USB connection between a fuegocable-modified audio interface and a computer's operating system is handled.
 
-## Linux
+## macOS and Linux
+
+These operating systems provide audio subsystems with enough features for professional audio software such as DAWs and effect plugins, including support for relatively low latencies.
+
+Both ALSA on Linux and Core Audio on macOS provide USB Audio Class 2.0 host support. This means that USB Audio Class-compliant interfaces can generally be used without installing a manufacturer-specific audio driver.
+
+The XMOS chip and firmware used by fuegocable make use of the [lib_xua](https://www.xmos.com/file/lib_xua/) library, which implements a USB Audio Class 2.0-compliant audio device.
+
+Therefore, no additional driver is required to use a fuegocable-modified interface on these operating systems because any audio software available for that systems already use the native audio subsystems (ALSA and Core Audio respectively).
 
 ## Windows
+
+### The ASIO Standard
+
+In the past, Windows native audio support was not well suited to professional audio applications and low-latency operation. This is why Steinberg developed the ASIO (Audio Stream Input/Output) standard, providing a communication layer between DAWs and audio hardware that allows manufacturers to offer low-latency audio.
+
+For this reason, audio manufacturers commonly provide their own ASIO driver for Windows, and there is traditionally no single generic ASIO driver that works with every multichannel USB audio interface.
+
+Windows does have native support for USB Audio Class devices, including UAC 2.0 since Windows 10 version 1703. However, many DAWs on Windows are designed to communicate with audio hardware through ASIO, so the native Windows audio stack is not always sufficient for these applications. Some DAWs, such as REAPER, can also use other Windows audio APIs other than ASIO.
+
+The problem relevant to fuegocable is that manufacturer-specific audio drivers probably use a standard USB Audio Class implementation for the actual audio transfer while also providing additional functionality for communicating with the manufacturer's hardware but fixed for some VID and PID values, specific for their interfaces. Since these drivers are usually closed source, it is difficult to verify exactly how they actually work.
+
+Because the drivers are closed-source and digitally signed, modifying them is not a straightforward option. Using unsigned or test-signed drivers requires changing Windows security settings to disable or weaken driver-signature enforcement, which can pose a security risk to the system.
+
+Since developing a Windows audio driver from scratch can be expensive, some audio interfaces companies use a driver from [Thesycon](https://www.thesycon.de/eng/usb_audiodriver.shtml), rebranded and configured for the VID and PID of the particular interface.
+
+fuegocable takes advantage of this behavior by using an existing driver instead of requiring a new one. The firmware can be configured with a specific VID and PID so that the modified interface presents itself to the operating system as another existing USB audio interface.
+
+For example, the Presonus Firestudio Project modified with fuegocable identifies itself as a Presonus AudioBox 1818VSL. The official Presonus driver therefore recognizes the device as an AudioBox 1818VSL and allows its 8 input channels and 8 output channels to be used in DAWs through ASIO over USB.
+
+For other modified interfaces, we will need to determine the most appropriate VID, PID, and driver to use. However, our tests have shown that the AudioBox 1818VSL driver works correctly with the 8 input channels, 8 output channels, and MIDI interface of the modified FireStudio Project, so any other modified interfaces could use the same values.
+
+### Open-Source Generic Driver Developed by Microsoft and Yamaha
+
+Alternatively, Microsoft is developing an open-source generic USB Audio Class 2.0 driver with an ASIO interface, in collaboration with Yamaha and Qualcomm. The project is available on GitHub:
+
+https://github.com/microsoft/low-latency-audio
+
+The goal is to provide ASIO support for generic UAC2 devices without requiring a manufacturer-specific VID and PID.
+
+However, there is currently no public distribution of the compiled driver. This is relevant because a publicly distributed and properly signed version would allow users to install it without having to disable Windows driver-signature enforcement.
+

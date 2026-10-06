@@ -1,3 +1,35 @@
+---
+sidebar_position: 1
+---
+
 # How does the mod work?
 
-Content about how the mod works.
+## Reverse engineering
+
+First, the interface to be modified is reverse-engineered to understand how it works and which integrated circuits it uses. The important part is to identify the digital audio signals, such as I2S and TDM, how the codecs are configured and through which buses (I2C or SPI), and to analyze the rest of the components that need to be configured or controlled by the main controller.
+
+## The new brain
+
+The original control IC is disabled. Ideally, it should be desoldered so that the PCB traces that need to be connected to the fuegocable control board can also be accessed more easily. Any component removed from the PCB should be handled carefully and stored in a bag inside the interface enclosure, so it can be preserved for the future in case the mod needs to be reversed and the interface restored to its original state.
+
+As of today, the fuegocable firmware is only developed for XMOS platforms, taking advantage of XMOS's `lib_xua` library, which implements USB Audio Class 2.0 for its chips. We currently do not have an official open-source XMOS-based board, so we make use of what is available on the market.
+
+Currently, the only supported board is the **DXIO MC 3W** by DIYINHK, which is the most affordable and versatile option available on the market. It is based on an XUF216 chip and exposes many of its pins through solderable pads on the PCB. However, the firmware is designed to support other XMOS boards, including boards from other manufacturers if needed, so we are not tied to a specific vendor.
+
+The signals identified from the various buses and GPIOs of the interface being modified are connected to the board using wires. The firmware configures the board to provide the necessary interfaces (I2C, SPI, I2S, GPIO, UART for MIDI, etc.).
+
+The connections must be made carefully to avoid damaging any PCB traces on the interface being modified, while also taking care with high-speed signals such as I2S/TDM and clocks. First, the wires for these signals should be kept as short as possible. Ideally, each signal should have a ground return, so the best option is to solder a ribbon cable directly to the PCB traces, alternating **Signal – Ground – Signal – Ground**, and use an IDC connector to connect it to the board. The DXIO MC 3W board already has a 40-pin header with one entire row dedicated to ground, making it particularly suitable for this purpose.
+
+## Firmware
+
+### Peripheral configuration
+
+The firmware must configure the peripherals as required, for example, initializing the converters to transmit digital audio in the expected format. For example, the Presonus Firestudio Project is designed to transmit 8 channels of digital audio over TDM. This allows a single data signal to be used for the 8 input channels and another data signal for the 8 output channels. However, there may be other cases where digital audio is transmitted using I2S. If there are 8 channels in such a case, 4 data signals will be required for each direction.
+
+### UI
+
+When necessary, a driver must be implemented in the firmware to make use of the interface components available on the interface, such as displays, LED VU meters, switches, or rotary encoders.
+
+## Beyond analog signals
+
+Some interfaces may provide ADAT, S/PDIF, or external clock synchronization connections. A mod implementing these interfaces has not yet been developed, but based on what we have studied so far, they appear to have a similar nature to the I2S/TDM data signals. For example, the DICE IC has 4 data input pins and 4 data output pins for I2S, which also support TDM, S/PDIF, and ADAT.
