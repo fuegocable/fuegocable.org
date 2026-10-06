@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([["9452"],{5146(e,s,t){t.r(s),t.d(s,{default:()=>r});var u=t(4848);t(6540);var a=t(6347);function r(){return(0,u.jsx)(a.rd,{to:"/docs/what-is-fuegocable"})}}}]);
