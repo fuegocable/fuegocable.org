@@ -1,3 +1,31 @@
 # Hardware
 
-Content about hardware contributions.
+## Custom and open source XMOS board for USB-I2S/TDM
+
+If you want to contribute in any area of the hardware, the project needs an XMOS-based board that is open source and as versatile as possible for the project's needs. Some features that could be needed on the board:
+
+* Based on an XU316 or newer chip, as long as it is the most affordable option with the best availability on the market, using a chip variant with the largest possible number of 1-bit ports.
+* A multipin connector exposing as many of the chip's pins as possible, especially the 1-bit ports, to connect a flex cable between the board and the modified audio interface.
+* A detachable connector for the USB-C extension that is mounted on the chassis, making it easy to install and remove during the modification, debugging, or repair process.
+* Easy access to the flash memory containing the firmware, to avoid complicating the process of directly programming the firmware to the IC. Ideally, there should be a header with the necessary pins to interface with the flash memory without desoldering it. This would lower the barrier for people who want to get involved in firmware development, as they would not need an XTAG to flash the firmware if the board becomes bricked.
+* A high-quality clock source to minimize jitter, either using a dedicated PLL or two crystals to derive the multiples of each sample rate (44.1 kHz and 48 kHz), as is commonly done on the project's reference boards.
+
+### Reference boards
+
+There are some schematics published online that could serve as references (the licenses under which they are published need to be verified):
+
+* [ddabidov/Headphone-DAC-AMP](https://github.com/ddabidov/Headphone-DAC-AMP)
+* [slerpxcq/openuac2_hw](https://github.com/slerpxcq/openuac2_hw)
+* [youheng7185/xmos_xu316_cs43131_usb_aud](https://github.com/youheng7185/xmos_xu316_cs43131_usb_aud)
+* [ptc22336/XU316-1024-QF60B_EVM](https://oshwhub.com/ptc22336/XU316-1024-QF60B_EVM)
+* [XMOS Official XU316 based Evaluation Kit](https://resources.ampheo.com/static/datasheets/xmos/xk-evk-xu316.pdf)
+
+Other reference boards that do not publish their schematics:
+
+* [DIYINHK DXIO MC (3W)](https://www.diyinhk.com/shop/audio-kits/175-2805-xmos-multichannel-high-quality-usb-tofrom-i2sdsd-spdif-pcb.html) or other boards from the same manufacturer
+* [MCHStreamer Lite](https://www.minidsp.com/products/usb-audio-interface/mchstreamer-lite)
+* [Phaten Audio XMOS based modules](https://phaten-audio.com/en/solutions/hifi_audio/english-translation/)
+
+## Footprint emulators to replace original ICs with a flex cable
+
+An idea that could greatly simplify the process of modifying audio interfaces is to replace the original ICs with a kind of interposer/footprint emulator. This could be very promising for groups of interfaces that share the same package (such as the DICE and BridgeCo families), and it is a technique commonly used in the video game console modchip scene. If you have PCB design skills and want to take on the challenge of designing an interposer on a flex PCB, the project would greatly benefit from it.
