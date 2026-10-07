@@ -14,7 +14,7 @@ After all, most of what we develop is built on top of someone else's work, knowl
 
 fuegocable is also a **non-profit project**. There are currently no people or companies working on it full-time, which means that new features, support for additional audio interfaces, and bug fixes will not necessarily be developed quickly.
 
-As long as there are people willing and motivated to maintain the project, the goal will be to address the needs that arise from those using the fuegocable mod and to keep expanding the project whenever time and resources allow.
+As long as there are people willing and motivated to maintain the project, the goal will be to address the needs that arise from those using the fuegocable mod and to keep expanding the project whenever time and resources allow. If you want to contribute to the project's development, check out our [contribution section](/docs/category/how-to-contribute).
 
 ## Modders across the world
 
@@ -26,9 +26,7 @@ Hopefully, one day this will grow into a community of modders spread across the 
 
 ## Extending fuegocable
 
-Because fuegocable is built around an open-source firmware and hardware platform, we have access to the code required to operate the modified interfaces. This gives us the possibility of expanding their functionality in the future — hopefully sooner rather than later.
-
-Some possible directions include:
+Because fuegocable is built around an open-source firmware, we have access to the code required to operate the modified interfaces. This gives us the possibility of expanding their functionality in the future — hopefully sooner rather than later and some possible directions are listed below.
 
 ### DSP & signal routing
 
@@ -56,6 +54,11 @@ Another long-term goal is to make the modification process increasingly systemat
 
 One important step toward this goal would be developing a **dedicated, open-source XMOS controller board** for fuegocable. There are already several open hardware XMOS designs available that could potentially serve as starting points for a board specifically designed around the project's requirements.
 
+<figure>
+<img src="/img/diyinhk-dxio-mc-3w.webp" alt="DIYINHK DXIO-MC-3W" width="500" />
+<figcaption>DIYINHK DXIO-MC-3W</figcaption>
+</figure>
+
 A few examples of open-source (we must check their licenses) XMOS based UAC devices available on the internet:
 - [ddabidov/Headphone-DAC-AMP](https://github.com/ddabidov/Headphone-DAC-AMP)
 - [slerpxcq/openuac2_hw](https://github.com/slerpxcq/openuac2_hw)
@@ -72,6 +75,8 @@ Instead of simply replacing the original IC, the flex PCB would route the signal
 
 This would make the physical modification much faster and more reproducible. Once the hardware connections and firmware for a particular interface have been reverse engineered, performing the modification could become largely a matter of soldering the appropriate adapter and loading the corresponding firmware. The concept is somewhat similar to techniques used in the console modchip scene, where an adapter or interposer allows additional hardware to be installed without permanently modifying the original PCB. Examples include projects such as PicoFly and Stellar XboxHD+.
 
-<img src="https://support.makemhz.com/assets/images/Step3-Flex-Installed_rev_6-ee1087ed132eb076b8bd22305e240ec5.png" alt="Stellar XboxHD+" width="1071" height="920" />
+<figure>
+<img src="https://support.makemhz.com/assets/images/Step3-Flex-Installed_rev_6-ee1087ed132eb076b8bd22305e240ec5.png" alt="Stellar XboxHD+" width="550" />
+</figure>
 
 The remaining complexity would then live mostly in software: the firmware would know how to initialize the interface, configure its converters and peripherals, handle its clocks and digital audio streams, and expose the resulting hardware as a USB audio device.

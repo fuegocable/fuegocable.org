@@ -14,7 +14,12 @@ The fuegocable mod therefore requires a thorough reverse-engineering analysis of
 
 The mod requires a controller with enough hardware resources to connect to the audio interface's existing components, while also providing USB connectivity and a stable implementation of USB Audio Class 2.0.
 
-At the moment, fuegocable is based on the **XMOS xcore family** for this purpose. This choice was made after investigating several available alternatives, including STM32 with USBX, TinyUSB, RP2040/RP2350, Teensy, and WCH solutions.
+At the moment, fuegocable is based on the **XMOS xcore family** for this purpose. This choice was made after investigating several available alternatives, including STM32 with USBX, TinyUSB, RP2040/RP2350, Teensy, and WCH solutions. There is a section where you can know more about the [supported XMOS boards](/docs/technical-overview/supported-xmos-boards) used in the project.
+
+<figure>
+<img src="/img/usb-stacks.webp" alt="USB stacks comparison" width="800" />
+<figcaption>Some available USB stacks that implements USB Audio Class</figcaption>
+</figure>
 
 XMOS provides an open-source USB Audio framework called **lib_xua**, which is specifically designed for implementing USB Audio Class devices. It supports UAC 1.0 and UAC 2.0, high-speed USB, asynchronous USB audio, and interfaces such as I2S/TDM. XMOS also provides reference hardware and complete example applications for its xcore-200 and xcore.ai devices.
 
@@ -51,6 +56,12 @@ Interfaces using widely adopted controller families such as DICE or BridgeCo are
 For example, different products may share the same controller architecture even when their analog sections, converters, clocking, or peripheral configuration differ. This can make it possible to reuse part of the reverse-engineering work and firmware architecture across several models.
 
 FPGA-based interfaces, on the other hand, may require more model-specific analysis because a larger portion of their behavior can be implemented through custom logic. This can make them more labor-intensive to reverse engineer and document.
+
+
+<figure>
+<img src="/img/presonus-fsp-internals.webp" alt="Firewire interfaces" width="1000" />
+<figcaption>Internals of a Presonus Firestudio Project</figcaption>
+</figure>
 
 ## How generalizable is the mod?
 

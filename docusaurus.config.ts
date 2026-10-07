@@ -51,7 +51,9 @@ const config: Config = {
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     navbar: {
       title: '',
@@ -68,8 +70,8 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
+          href: 'https://github.com/fuegocable/fuegocable.org',
+          label: 'Edit on GitHub',
           position: 'right',
         },
       ],

@@ -10,6 +10,10 @@ If you want to contribute in any area of the hardware, the project needs an XMOS
 * Easy access to the flash memory containing the firmware, to avoid complicating the process of directly programming the firmware to the IC. Ideally, there should be a header with the necessary pins to interface with the flash memory without desoldering it. This would lower the barrier for people who want to get involved in firmware development, as they would not need an XTAG to flash the firmware if the board becomes bricked.
 * A high-quality clock source to minimize jitter, either using a dedicated PLL or two crystals to derive the multiples of each sample rate (44.1 kHz and 48 kHz), as is commonly done on the project's reference boards.
 
+
+You can check more info about supported boards in this [section](/docs/technical-overview/supported-xmos-boards).
+
+
 ### Reference boards
 
 There are some schematics published online that could serve as references (the licenses under which they are published need to be verified):
@@ -27,5 +31,7 @@ Other reference boards that do not publish their schematics:
 * [Phaten Audio XMOS based modules](https://phaten-audio.com/en/solutions/hifi_audio/english-translation/)
 
 ## Footprint emulators to replace original ICs with a flex cable
+
+This idea is also discussed in the [future of fuegocable](/docs/intro/future.mdx#an-interposer-or-footprint-emulator) section as part of making the modding process easier.
 
 An idea that could greatly simplify the process of modifying audio interfaces is to replace the original ICs with a kind of interposer/footprint emulator. This could be very promising for groups of interfaces that share the same package (such as the DICE and BridgeCo families), and it is a technique commonly used in the video game console modchip scene. If you have PCB design skills and want to take on the challenge of designing an interposer on a flex PCB, the project would greatly benefit from it.

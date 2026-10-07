@@ -20,7 +20,12 @@ This section outlines some ideas—whether practically feasible or merely theore
 
 This approach was already mentioned above. It consists of using a desktop PC equipped with a compatible PCI or PCIe Firewire card and installing an operating system and drivers supported by the interface.
 
-The main drawback is obviously portability. It is not a particularly convenient setup if the interface needs to be used on the go, but it can be a perfectly valid way to keep an old interface operational.
+<figure>
+<img src="/img/firewire-expansion-cards.webp" alt="Firewire expansion cards" width="1000" />
+<figcaption>PCI Expansion cards for PC or Expresscards for old laptops</figcaption>
+</figure>
+
+The main drawback is obviously portability in the case of a desktop PC. It is not a particularly convenient setup if the interface needs to be used on the go, but it can be a perfectly valid way to keep an old interface operational.
 
 It may also be possible to find interfaces whose manufacturers continued providing drivers for relatively recent operating systems. In those cases, a legacy computer may not be necessary at all. However, this depends heavily on the particular interface and operating system.
 
@@ -34,13 +39,17 @@ One example is the [RME Digiface USB](https://rme-audio.de/digiface-usb.html), w
 
 This approach is particularly interesting because the Firewire connection becomes unnecessary for the actual audio transport. The old interface effectively becomes an external ADAT converter or I/O device.
 
+<figure>
 <img src="https://www.rme-usa.com/files/uploads/RME-Products/External/Digiface-USB.png" alt="Digiface USB RME" width="1000" height="522" />
+</figure>
 
 There is an important limitation, however: many interfaces require a computer and proprietary software to configure routing, sample rate, clocking, or other settings. In some cases, the interface only needs to be configured once. After that, it may retain its configuration and operate in standalone mode, allowing the Firewire connection and legacy computer to be removed from the setup. Whether this is possible depends entirely on the particular interface.
 
 MOTU Traveler example:
 
+<div style={{textAlign: "center"}}>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ITc9vPDZ5H0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Thunderbolt adapters
 
@@ -60,13 +69,19 @@ However, the adapter itself does not solve the driver problem. It only provides 
 
 Compatibility can also depend on the specific Thunderbolt generation, Firewire adapter, operating system, and interface.
 
+<div style={{textAlign: "center"}}>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0EhzlqH9fMo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Laptop PCIe Riser
 
 Another possible approach is to expose a laptop's internal PCIe connectivity and attach a Firewire controller externally using a suitable riser or adapter.
 
 For example, some older laptops expose Mini PCIe slots that can potentially be used with PCIe-based peripherals. In theory, a Firewire controller could be connected this way.
+
+<figure>
+<img src="/img/netbook-riser.webp" alt="Netbook riser with PCIe slot" width="500" />
+</figure>
 
 In practice, this solution is highly dependent on the particular laptop and slot. Not every Mini PCIe slot provides the same connectivity or is suitable for this kind of expansion.
 
@@ -76,7 +91,9 @@ As with the other approaches, an appropriate driver and control software are sti
 
 Here you can watch a netbook with an external GPU through PCI. The same would apply with a Firewire PCI card.
 
+<div style={{textAlign: "center"}}>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mOtXJpb6SEw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ## Host Middleware: Embedded Linux Firewire-to-UAC
 
@@ -86,7 +103,9 @@ The idea would be to use a small Linux computer as a bridge between a Firewire a
 
 There are several ways this could potentially be approached. Modern single-board computers such as the Raspberry Pi 5 expose PCIe connectivity that can be used with appropriate hardware, while projects such as [Firehat](https://www.crowdsupply.com/computer-equipment-group/firehat) have explored adding Firewire connectivity to small Linux-based computers so we can have a very optimized system to achieve the lowest possible latency.
 
+<figure>
 <img src="https://www.crowdsupply.com/img/1635/a0e800ea-ff66-41a8-9313-e4f6fcf61635_project-main.jpg" alt="Firehat" width="749" height="421" />
+</figure>
 
 Because these systems generally use ARM processors, running the original Windows or macOS drivers is not a realistic approach and also can not be tweaked enough to achive low latency as a Firewire to USB bridge. Linux support therefore becomes essential.
 
@@ -110,6 +129,8 @@ For these reasons, this is not currently a particularly attractive alternative f
 
 You can find some strange connector adapters in some marketplaces with a USB A Male connector in one end and a Firewire 400 connector in the other end. **These are a scam!** They do not handle any kind of protocol conversion, they only have a few wires connected between the connectors.
 
+<div style={{textAlign: "center"}}>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jpZQZHAuIxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 
