@@ -17,7 +17,7 @@ const config: Config = {
   organizationName: 'fuegocable',
   projectName: 'fuegocable.org',
 
-  onBrokenLinks: 'ignore', // TODO: remove this ignore
+  onBrokenLinks: 'throw',
 
   i18n: {
     defaultLocale: 'en',
@@ -63,8 +63,15 @@ const config: Config = {
       },
       items: [
         {
-          href: 'https://github.com/fuegocable/xmos-firmware',
-          label: 'Firmware GitHub',
+          type: 'docSidebar',
+          sidebarId: 'tutorialSidebar',
+          position: 'left',
+          label: 'Docs',
+        },
+        {to: '/blog', label: 'Blog', position: 'left'},
+        {
+          href: 'https://github.com/fuegocable/fuegocable.org',
+          label: 'Edit on GitHub',
           position: 'right',
         },
       ],
@@ -73,11 +80,41 @@ const config: Config = {
       style: 'dark',
       links: [
         {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Docs',
+              to: '/docs/what-is-fuegocable',
+            },
+          ],
+        },
+        {
           title: 'Community',
           items: [
             {
-              label: 'Firmware GitHub',
-              href: 'https://github.com/fuegocable/xmos-firmware',
+              label: 'Stack Overflow',
+              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+            },
+            {
+              label: 'Discord',
+              href: 'https://discordapp.com/invite/docusaurus',
+            },
+            {
+              label: 'X',
+              href: 'https://x.com/docusaurus',
+            },
+          ],
+        },
+        {
+          title: 'More',
+          items: [
+            {
+              label: 'Blog',
+              to: '/blog',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/facebook/docusaurus',
             },
           ],
         },
