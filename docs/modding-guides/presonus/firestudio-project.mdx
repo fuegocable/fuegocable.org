@@ -1,11 +1,32 @@
-# Firestudio Project
+# Presonus Firestudio Project
 
-*TODO: complete section*
+<img src="/img/presonus-fsp-main.webp" alt="fuegocable main"/>
 
-## Support Level
+## Support table
 
-## Features
+| Hardware Revision       | Rev. H                                                                               |
+|-------------------------|--------------------------------------------------------------------------------------|
+| Supported since version | [1.0.0-alpha](https://github.com/fuegocable/xmos-firmware/releases/tag/v1.0.0-alpha) |
+| Analog Inputs           | 8 ch                                                                                 |
+| Analog Outputs          | 8 ch                                                                                 |
+| MIDI                    | Yes                                                                                  |
+| S/PDIF                  | No                                                                                   |
+| Vumeters                | Yes                                                                                  |
 
-## Modding Complexity
+## Hardware Highlights
 
-## LEDs
+| Role            | IC Identification                                                                                                                                                          |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Main MCU        | TC Applied Technologies [TCD2210](/assets/tc-applied-technologies/tcd22xx_user_guide.pdf) (Dice Mini)                                                                      |
+| RAM             | Micron [48LC4M16A2](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2582/MT48LC%204M16A2%2C8M8A2%2C16M4A2.pdf)                                                |
+| Flash           | Cypress [S29AL016J70](https://www.infineon.com/assets/row/public/documents/10/49/infineon-s29al016j-16-mbit-2m-x-8-bit-1m-x-16-bit-3-v-boot-sector-flash-datasheet-en.pdf) |
+| Firewire PHY    | Texas Instruments [TSB41AB2](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8889/296_TSB41AB2PAPR.pdf)                                                       |
+| Audio ADC       | Cirrus Logic [CS5368](https://www.cirrus.com/docs/ds/cs5368-datasheet.pdf) (1 x 8 channels)                                                                                |
+| Audio DAC       | Cirrus Logic  [CS4385](https://www.cirrus.com/docs/ds/cs4385-datasheet.pdf) (1 x 8 channels)                                                                               |
+| SPI Multiplexer | Fairchild V138 [74VHC138](https://www.onsemi.com/download/data-sheet/pdf/74vhc138-d.pdf)                                                                                   |
+
+## TCD2210 TC Applied Techonologies additional documents
+
+import StaticDirList from '@site/src/components/StaticDirList';
+
+<StaticDirList directoryPath="assets/tc-applied-technologies" />

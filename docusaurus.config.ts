@@ -48,6 +48,15 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    [
+      require.resolve('./plugins/dynamic-file-list'),
+      {
+        directories: ['assets/tc-applied-technologies'],
+      },
+    ],
+  ],
+
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
