@@ -1,6 +1,6 @@
-# Presonus Firestudio Project
+# Firestudio Project
 
-<img src="/img/presonus-fsp-main.webp" alt="fuegocable main"/>
+<img src="/assets/audio-devices/presonus/firestudio-project/presonus-fsp-main.webp" alt="fuegocable main"/>
 
 ## Support table
 
@@ -15,18 +15,33 @@
 
 ## Hardware Highlights
 
-| Role            | IC Identification                                                                                                                                                          |
-|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Main MCU        | TC Applied Technologies [TCD2210](/assets/tc-applied-technologies/tcd22xx_user_guide.pdf) (Dice Mini)                                                                      |
-| RAM             | Micron [48LC4M16A2](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2582/MT48LC%204M16A2%2C8M8A2%2C16M4A2.pdf)                                                |
-| Flash           | Cypress [S29AL016J70](https://www.infineon.com/assets/row/public/documents/10/49/infineon-s29al016j-16-mbit-2m-x-8-bit-1m-x-16-bit-3-v-boot-sector-flash-datasheet-en.pdf) |
-| Firewire PHY    | Texas Instruments [TSB41AB2](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8889/296_TSB41AB2PAPR.pdf)                                                       |
-| Audio ADC       | Cirrus Logic [CS5368](https://www.cirrus.com/docs/ds/cs5368-datasheet.pdf) (1 x 8 channels)                                                                                |
-| Audio DAC       | Cirrus Logic  [CS4385](https://www.cirrus.com/docs/ds/cs4385-datasheet.pdf) (1 x 8 channels)                                                                               |
-| SPI Multiplexer | Fairchild V138 [74VHC138](https://www.onsemi.com/download/data-sheet/pdf/74vhc138-d.pdf)                                                                                   |
+| Role                    | IC Identification                                                                                                                                                          |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Main MCU                | TC Applied Technologies [TCD2210 (Dice Mini)](/assets/tc-applied-technologies/tcd22xx_user_guide.pdf)                                                                      |
+| RAM                     | Micron [48LC4M16A2](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2582/MT48LC%204M16A2%2C8M8A2%2C16M4A2.pdf)                                                |
+| Flash                   | Cypress [S29AL016J70](https://www.infineon.com/assets/row/public/documents/10/49/infineon-s29al016j-16-mbit-2m-x-8-bit-1m-x-16-bit-3-v-boot-sector-flash-datasheet-en.pdf) |
+| Firewire PHY            | Texas Instruments [TSB41AB2](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8889/296_TSB41AB2PAPR.pdf)                                                       |
+| Audio ADC               | (1 x 8 channels) Cirrus Logic [CS5368](https://www.cirrus.com/docs/ds/cs5368-datasheet.pdf)                                                                                |
+| Audio DAC               | (1 x 8 channels) Cirrus Logic  [CS4385](https://www.cirrus.com/docs/ds/cs4385-datasheet.pdf)                                                                               |
+| SPI Multiplexer         | Fairchild V138 [74VHC138](https://www.onsemi.com/download/data-sheet/pdf/74vhc138-d.pdf)                                                                                   |
+| Vumeters Shift Register | Fairchild V595 [74VHC595](https://www.onsemi.com/pdf/datasheet/74vhc595-d.pdf)                                                                                             |
+
+
+## Reverse engineered circuit schematic
+
+An incomplete schematic outline, yet useful for understanding some signals related to the TCD2210 main MCU. You can download the Kicad project (schematic plus some symbols) from [this link](/assets/audio-devices/presonus/firestudio-project/presonus-firestudio-project-reverse-engineering-kicad.zip).
+
+<figure>
+<a href="/assets/audio-devices/presonus/firestudio-project/presonus-fsp-codec-traces.webp" target="_blank">
+<img src="/assets/audio-devices/presonus/firestudio-project/presonus-fsp-codec-traces_1000w.webp" alt="presonus-fsp-codec-traces"/>
+</a>
+<figcaption>Click the image to view it full size</figcaption>
+</figure>
 
 ## TCD2210 TC Applied Techonologies additional documents
 
 import StaticDirList from '@site/src/components/StaticDirList';
 
 <StaticDirList directoryPath="assets/tc-applied-technologies" />
+
+
