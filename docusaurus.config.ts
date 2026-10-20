@@ -1,6 +1,9 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import {
+	type NativeIdealImageOptions,
+} from 'docusaurus-plugin-native-ideal-image'
 
 const config: Config = {
   title: 'fuegocable',
@@ -55,16 +58,18 @@ const config: Config = {
         directories: ['assets/tc-applied-technologies'],
       },
     ],
-    [
-      require.resolve('@docusaurus/plugin-ideal-image'),
-      {
-        quality: 85,
-        max: 3000,
-        min: 640,
-        steps: 3,
-        disableInDev: false,
-      },
-    ],
+		[
+			'native-ideal-image',
+			{
+				presets: {
+					default: {
+						sizes: [650, 950, 1200, 9999],
+						formats: ['webp'],
+					},
+				},
+				disableInDev: false,
+			} satisfies NativeIdealImageOptions,
+		],
   ],
 
   themeConfig: {

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-import IdealImage from '@theme/IdealImage';
+import NativeIdealImage from '@theme/NativeIdealImage';
 
 # How can firewire audio interfaces be used today?
 
@@ -23,7 +23,7 @@ This section outlines some ideas—whether practically feasible or merely theore
 This approach was already mentioned above. It consists of using a desktop PC equipped with a compatible PCI or PCIe Firewire card and installing an operating system and drivers supported by the interface.
 
 <figure>
-<IdealImage img={require('/img/firewire-expansion-cards.webp')} alt="Firewire expansion cards" />
+<NativeIdealImage img={require('ideal-img!/img/firewire-expansion-cards.webp')} alt="Firewire expansion cards" />
 <figcaption>PCI Expansion cards for PC or Expresscards for old laptops</figcaption>
 </figure>
 
@@ -82,7 +82,7 @@ Another possible approach is to expose a laptop's internal PCIe connectivity and
 For example, some older laptops expose Mini PCIe slots that can potentially be used with PCIe-based peripherals. In theory, a Firewire controller could be connected this way.
 
 <figure>
-<IdealImage img={require('/img/netbook-riser.webp')} alt="Netbook riser with PCIe slot" />
+<NativeIdealImage img={require('ideal-img!/img/netbook-riser.webp')} alt="Netbook riser with PCIe slot" />
 </figure>
 
 In practice, this solution is highly dependent on the particular laptop and slot. Not every Mini PCIe slot provides the same connectivity or is suitable for this kind of expansion.

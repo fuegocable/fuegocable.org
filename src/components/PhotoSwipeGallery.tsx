@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, ReactNode, cloneElement, Children } from 'react';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
+import { PhotoSwipeOptions } from 'photoswipe';
 
 interface PhotoSwipeGalleryProps {
   children: ReactNode;
+  options?: PhotoSwipeOptions;
 }
 
-export default function PhotoSwipeGallery({ children }: PhotoSwipeGalleryProps): JSX.Element {
+export default function PhotoSwipeGallery({ children, options }: PhotoSwipeGalleryProps): JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
   const lightboxRef = useRef<PhotoSwipeLightbox | null>(null);
 
@@ -16,7 +18,10 @@ export default function PhotoSwipeGallery({ children }: PhotoSwipeGalleryProps):
     const lightbox = new PhotoSwipeLightbox({
       gallery: containerRef.current,
       children: 'a',
+      showHideAnimationType: 'none',
+      zoomAnimationDuration: false,
       pswpModule: () => import('photoswipe'),
+      ...options
     });
 
     lightbox.init();
@@ -31,47 +36,19 @@ export default function PhotoSwipeGallery({ children }: PhotoSwipeGalleryProps):
     if (!React.isValidElement(child)) return child;
 
     const imgProp = child.props.img;
-    let imgSrc: string;
+    let imgSrc = "";
     let imgWidth = 1200;
     let imgHeight = 800;
-    let thumbnailSrc: string | undefined;
 
     if (typeof imgProp === 'string') {
       imgSrc = imgProp;
-    } else if (imgProp?.src) {
-      // Use images array if available
-      if (imgProp.src.images && Array.isArray(imgProp.src.images) && imgProp.src.images.length > 0) {
-        const images = imgProp.src.images;
-        // Find largest image for modal
-        const largestImage = images.reduce((max, img) => (img.width > max.width ? img : max), images[0]);
-        imgSrc = largestImage.path;
-        imgWidth = largestImage.width;
-        imgHeight = largestImage.height;
-
-        // Find smallest image > 600px for thumbnail
-        const thumbnailImage = images
-          .filter(img => img.width > 600)
-          .reduce((min, img) => (img.width < min.width ? img : min), images[images.length - 1]);
-        
-        if (thumbnailImage) {
-          thumbnailSrc = thumbnailImage.path;
-        }
-      } else {
-        // Fallback to src.src
-        imgSrc = imgProp.src.src;
-        imgWidth = imgProp.src.width || 1200;
-        imgHeight = imgProp.src.height || 800;
-      }
-    } else if (imgProp?.default) {
-      imgSrc = imgProp.default;
-    } else {
-      imgSrc = '';
+    } else if (imgProp?.default?.formats && imgProp?.default?.formats[0] && Array.isArray(imgProp.default.formats[0].srcSet) && imgProp.default.formats[0].srcSet.length > 0) {
+      const images = imgProp.default.formats[0].srcSet;
+      const largestImage = images.reduce((max, img) => (img.width > max.width ? img : max), images[0]);
+      imgSrc = largestImage.path;
+      imgWidth = largestImage.width;
+      imgHeight = largestImage.height;
     }
-
-    // Clone child with thumbnail for display, use large image for modal
-    const childWithThumbnail = thumbnailSrc
-      ? cloneElement(child, { img: thumbnailSrc })
-      : child;
 
     return (
       <a
@@ -79,11 +56,10 @@ export default function PhotoSwipeGallery({ children }: PhotoSwipeGalleryProps):
         data-pswp-width={imgWidth}
         data-pswp-height={imgHeight}
         style={{ display: 'block' }}
+        className={"photo-swipe-gallery-item"}
       >
         <div
           style={{
-            borderRadius: '8px',
-            overflow: 'hidden',
             transition: 'transform 0.2s ease',
           }}
           onMouseEnter={(e) => {
@@ -93,14 +69,14 @@ export default function PhotoSwipeGallery({ children }: PhotoSwipeGalleryProps):
             e.currentTarget.style.transform = 'scale(1)';
           }}
         >
-          {childWithThumbnail}
+          {child}
         </div>
       </a>
     );
   });
 
   return (
-    <div ref={containerRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1rem' }}>
+    <div ref={containerRef} style={wrappedChildren && wrappedChildren.length > 1 ? { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1rem' } : {}}>
       {wrappedChildren}
     </div>
   );

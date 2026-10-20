@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 ---
+import NativeIdealImage from '@theme/NativeIdealImage'
 
 # The future of fuegocable
 
@@ -55,7 +56,7 @@ Another long-term goal is to make the modification process increasingly systemat
 One important step toward this goal would be developing a **dedicated, open-source XMOS controller board** for fuegocable. There are already several open hardware XMOS designs available that could potentially serve as starting points for a board specifically designed around the project's requirements.
 
 <figure>
-<IdealImage img={require('/img/diyinhk-dxio-mc-3w.webp')} alt="DIYINHK DXIO-MC-3W" />
+<NativeIdealImage img={require('ideal-img!/img/diyinhk-dxio-mc-3w.webp')} alt="DIYINHK DXIO-MC-3W" />
 <figcaption>DIYINHK DXIO-MC-3W</figcaption>
 </figure>
 
@@ -76,7 +77,7 @@ Instead of simply replacing the original IC, the flex PCB would route the signal
 This would make the physical modification much faster and more reproducible. Once the hardware connections and firmware for a particular interface have been reverse engineered, performing the modification could become largely a matter of soldering the appropriate adapter and loading the corresponding firmware. The concept is somewhat similar to techniques used in the console modchip scene, where an adapter or interposer allows additional hardware to be installed without permanently modifying the original PCB. Examples include projects such as PicoFly and Stellar XboxHD+.
 
 <figure>
-<IdealImage img={require('https://support.makemhz.com/assets/images/Step3-Flex-Installed_rev_6-ee1087ed132eb076b8bd22305e240ec5.png')} alt="Stellar XboxHD+" />
+<img src={'https://support.makemhz.com/assets/images/Step3-Flex-Installed_rev_6-ee1087ed132eb076b8bd22305e240ec5.png'} alt="Stellar XboxHD+" />
 </figure>
 
 The remaining complexity would then live mostly in software: the firmware would know how to initialize the interface, configure its converters and peripherals, handle its clocks and digital audio streams, and expose the resulting hardware as a USB audio device.

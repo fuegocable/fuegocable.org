@@ -36,3 +36,18 @@ figure {
 figure img {
   margin: 0 auto;
 }
+
+/* Photo Swipe */
+.photo-swipe-gallery-item > div {
+  height: 100%;
+}
+.photo-swipe-gallery-item > div > picture {
+  height: 100%;
+  width: 100%;
+}
+.photo-swipe-gallery-item > div > picture > img {
+  max-width: unset;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
