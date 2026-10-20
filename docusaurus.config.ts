@@ -55,6 +55,16 @@ const config: Config = {
         directories: ['assets/tc-applied-technologies'],
       },
     ],
+    [
+      require.resolve('@docusaurus/plugin-ideal-image'),
+      {
+        quality: 85,
+        max: 3000,
+        min: 640,
+        steps: 3,
+        disableInDev: false,
+      },
+    ],
   ],
 
   themeConfig: {

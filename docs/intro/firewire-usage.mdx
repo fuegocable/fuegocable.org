@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import IdealImage from '@theme/IdealImage';
+
 # How can firewire audio interfaces be used today?
 
 It is not impossible to use old Firewire audio interfaces today. To verify this, one only needs to turn on a desktop PC from a few years ago with a compatible Firewire port, install an appropriate operating system and driver, and use an older version of a DAW such as Pro Tools to record or play back audio.
@@ -21,7 +23,7 @@ This section outlines some ideas—whether practically feasible or merely theore
 This approach was already mentioned above. It consists of using a desktop PC equipped with a compatible PCI or PCIe Firewire card and installing an operating system and drivers supported by the interface.
 
 <figure>
-<img src="/img/firewire-expansion-cards.webp" alt="Firewire expansion cards" width="1000" />
+<IdealImage img={require('/img/firewire-expansion-cards.webp')} alt="Firewire expansion cards" />
 <figcaption>PCI Expansion cards for PC or Expresscards for old laptops</figcaption>
 </figure>
 
@@ -40,7 +42,7 @@ One example is the [RME Digiface USB](https://rme-audio.de/digiface-usb.html), w
 This approach is particularly interesting because the Firewire connection becomes unnecessary for the actual audio transport. The old interface effectively becomes an external ADAT converter or I/O device.
 
 <figure>
-<img src="https://www.rme-usa.com/files/uploads/RME-Products/External/Digiface-USB.png" alt="Digiface USB RME" width="1000" height="522" />
+<img src="https://www.rme-usa.com/files/uploads/RME-Products/External/Digiface-USB.png" alt="Digiface USB RME" />
 </figure>
 
 There is an important limitation, however: many interfaces require a computer and proprietary software to configure routing, sample rate, clocking, or other settings. In some cases, the interface only needs to be configured once. After that, it may retain its configuration and operate in standalone mode, allowing the Firewire connection and legacy computer to be removed from the setup. Whether this is possible depends entirely on the particular interface.
@@ -80,7 +82,7 @@ Another possible approach is to expose a laptop's internal PCIe connectivity and
 For example, some older laptops expose Mini PCIe slots that can potentially be used with PCIe-based peripherals. In theory, a Firewire controller could be connected this way.
 
 <figure>
-<img src="/img/netbook-riser.webp" alt="Netbook riser with PCIe slot" width="500" />
+<IdealImage img={require('/img/netbook-riser.webp')} alt="Netbook riser with PCIe slot" />
 </figure>
 
 In practice, this solution is highly dependent on the particular laptop and slot. Not every Mini PCIe slot provides the same connectivity or is suitable for this kind of expansion.
@@ -104,7 +106,7 @@ The idea would be to use a small Linux computer as a bridge between a Firewire a
 There are several ways this could potentially be approached. Modern single-board computers such as the Raspberry Pi 5 expose PCIe connectivity that can be used with appropriate hardware, while projects such as [Firehat](https://www.crowdsupply.com/computer-equipment-group/firehat) have explored adding Firewire connectivity to small Linux-based computers so we can have a very optimized system to achieve the lowest possible latency.
 
 <figure>
-<img src="https://www.crowdsupply.com/img/1635/a0e800ea-ff66-41a8-9313-e4f6fcf61635_project-main.jpg" alt="Firehat" width="749" height="421" />
+<img src="https://www.crowdsupply.com/img/1635/a0e800ea-ff66-41a8-9313-e4f6fcf61635_project-main.jpg" alt="Firehat" />
 </figure>
 
 Because these systems generally use ARM processors, running the original Windows or macOS drivers is not a realistic approach and also can not be tweaked enough to achive low latency as a Firewire to USB bridge. Linux support therefore becomes essential.

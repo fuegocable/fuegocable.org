@@ -2,6 +2,8 @@
 sidebar_position: 4
 ---
 
+import IdealImage from '@theme/IdealImage';
+
 # About the fuegocable Mod
 
 The modification proposed by fuegocable is based on replacing the device that acts as the main controller of an audio interface, allowing the new controller to communicate directly with the digital audio signals coming from the converters and transfer them over USB. The modification also requires implementing the necessary configuration and control of the relevant integrated circuits and peripherals.
@@ -17,7 +19,7 @@ The mod requires a controller with enough hardware resources to connect to the a
 At the moment, fuegocable is based on the **XMOS xcore family** for this purpose. This choice was made after investigating several available alternatives, including STM32 with USBX, TinyUSB, RP2040/RP2350, Teensy, and WCH solutions. There is a section where you can know more about the [supported XMOS boards](/docs/technical-overview/supported-xmos-boards) used in the project.
 
 <figure>
-<img src="/img/usb-stacks.webp" alt="USB stacks comparison" width="800" />
+<IdealImage img={require('/img/usb-stacks.webp')} alt="USB stacks comparison" />
 <figcaption>Some available USB stacks that implements USB Audio Class</figcaption>
 </figure>
 
@@ -59,7 +61,7 @@ FPGA-based interfaces, on the other hand, may require more model-specific analys
 
 
 <figure>
-<img src="/assets/audio-devices/presonus/firestudio-project/presonus-fsp-internals.webp" alt="Firewire interfaces" width="1000" />
+<IdealImage img={require('/assets/audio-devices/presonus/firestudio-project/presonus-fsp-internals.webp')} alt="Firewire interfaces" />
 <figcaption>Internals of a Presonus Firestudio Project</figcaption>
 </figure>
 

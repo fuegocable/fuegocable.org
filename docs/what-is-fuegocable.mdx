@@ -2,9 +2,11 @@
 sidebar_position: 1
 ---
 
+import IdealImage from '@theme/IdealImage';
+
 # What is fuegocable?
 
-<img src="/assets/audio-devices/presonus/firestudio-project/presonus-fsp-modded-back.webp" alt="fuegocable modded presonus" style={{marginBottom: '1rem'}}/>
+<IdealImage img={require('/assets/audio-devices/presonus/firestudio-project/presonus-fsp-modded-back.webp')} alt="fuegocable modded presonus" style={{marginBottom: '1rem'}}/>
 
 :::note
 
@@ -23,7 +25,7 @@ As described in [How can firewire audio interfaces be used today?](/docs/intro/f
 fuegocable takes a different approach. Instead of adapting a modern computer to the old interface, the project focuses on modifying the interface itself. The basic idea is to replace or bypass its original main controller — the part responsible for communicating with the host computer and managing the digital audio connection between the computer and the interface's audio converters — and replace it with a modern controller capable of implementing USB Audio Class. You can learn more about [how the mod works](/docs/technical-overview/how-mod-works.mdx) and [the technical details of the approach](/docs/intro/about-mod.mdx).
 
 <figure>
-<img src="/img/firewire-interfaces.webp" alt="Firewire interfaces" width="1000" />
+<IdealImage img={require('/img/firewire-interfaces.webp')} alt="Firewire interfaces" />
 </figure>
 
 
