@@ -5,10 +5,11 @@ import { PhotoSwipeOptions } from 'photoswipe';
 
 interface PhotoSwipeGalleryProps {
   children: ReactNode;
-  options?: PhotoSwipeOptions;
+  containerClassName?: string;
+  photoSwipeOptions?: PhotoSwipeOptions;
 }
 
-export default function PhotoSwipeGallery({ children, options }: PhotoSwipeGalleryProps): JSX.Element {
+export default function PhotoSwipeGallery({ children, photoSwipeOptions, containerClassName }: PhotoSwipeGalleryProps): JSX.Element {
   const containerRef = useRef<HTMLDivElement>(null);
   const lightboxRef = useRef<PhotoSwipeLightbox | null>(null);
 
@@ -21,7 +22,7 @@ export default function PhotoSwipeGallery({ children, options }: PhotoSwipeGalle
       showHideAnimationType: 'none',
       zoomAnimationDuration: false,
       pswpModule: () => import('photoswipe'),
-      ...options
+      ...photoSwipeOptions
     });
 
     lightbox.init();
@@ -76,7 +77,7 @@ export default function PhotoSwipeGallery({ children, options }: PhotoSwipeGalle
   });
 
   return (
-    <div ref={containerRef} style={wrappedChildren && wrappedChildren.length > 1 ? { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1rem' } : {}}>
+    <div ref={containerRef} className={containerClassName}>
       {wrappedChildren}
     </div>
   );
