@@ -3,6 +3,10 @@
 # Remove unnecessary metadata from staged raster images.
 # Requires ExifTool.
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+cd $SCRIPT_DIR/../
+
 if ! command -v exiftool >/dev/null 2>&1; then
   echo "Error: exiftool is not installed." >&2
   exit 1
