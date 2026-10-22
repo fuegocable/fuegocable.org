@@ -52,11 +52,11 @@ figure img {
   object-fit: cover;
 }
 
-.photo-swipe-gallery-multiple-photos {
+.photo-swipe-gallery-small-thumbnails {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
 }
-.photo-swipe-gallery-multiple-photos .photo-swipe-gallery-item > div {
+.photo-swipe-gallery-small-thumbnails .photo-swipe-gallery-item > div {
   max-height: 100px;
 }
