@@ -77,7 +77,7 @@ export default function PhotoSwipeGallery({ children, photoSwipeOptions, contain
   });
 
   return (
-    <div ref={containerRef} className={containerClassName}>
+    <div ref={containerRef} className={['photo-swipe-gallery-container',containerClassName].join(' ')}>
       {wrappedChildren}
     </div>
   );

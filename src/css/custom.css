@@ -52,6 +52,7 @@ figure img {
   object-fit: cover;
 }
 
+/** Small thumbnails **/
 .photo-swipe-gallery-small-thumbnails {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -59,4 +60,58 @@ figure img {
 }
 .photo-swipe-gallery-small-thumbnails .photo-swipe-gallery-item > div {
   max-height: 100px;
+}
+
+/** Medium thumbnails **/
+.photo-swipe-gallery-medium-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+/* Pinout table */
+.pinout-table-container {
+  display: flex;
+  justify-content: center;
+  font-size:0.8rem;
+}
+.pinout-table-container table td, .pinout-table-container table th {
+  padding: 0.1rem 0.5rem;
+  text-align: center;
+  border-color: rgb(133, 133, 133);
+}
+
+/** Center columns **/
+.pinout-table-container.pinout-table-black-center-columns table td:first-child:nth-last-child(8) ~ td:nth-child(4),
+.pinout-table-container.pinout-table-black-center-columns table td:first-child:nth-last-child(8) ~ td:nth-child(5),
+.pinout-table-container.pinout-table-black-center-columns table td:first-child:nth-last-child(12) ~ td:nth-child(6),
+.pinout-table-container.pinout-table-black-center-columns table td:first-child:nth-last-child(12) ~ td:nth-child(7) {
+  background-color: rgb(44, 44, 44);
+  color: white;
+}
+
+.pinout-table-container.pinout-table-marked-1-outside-center-columns table td:first-child:nth-last-child(8) ~ td:nth-child(3),
+.pinout-table-container.pinout-table-marked-1-outside-center-columns table td:first-child:nth-last-child(8) ~ td:nth-child(6) {
+  position: relative;
+  font-weight: 500;
+}
+
+.pinout-table-container.pinout-table-marked-1-outside-center-columns table td:first-child:nth-last-child(8) ~ td:nth-child(3)::before,
+.pinout-table-container.pinout-table-marked-1-outside-center-columns table td:first-child:nth-last-child(8) ~ td:nth-child(6)::before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index:-10;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(136, 203, 223, 0.425);
+}
+
+/* Modding guide */
+.fuegocable-modding-guide .photo-swipe-gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
 }

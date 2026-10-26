@@ -6,7 +6,7 @@ import PhotoSwipeGallery from '@site/src/components/PhotoSwipeGallery';
 
 <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-fsp-main.webp')} alt="fuegocable main"/>
 
-## Support table
+### Support table
 
 | Hardware Revision       | Rev. H                                                                               |
 |-------------------------|--------------------------------------------------------------------------------------|
@@ -17,7 +17,7 @@ import PhotoSwipeGallery from '@site/src/components/PhotoSwipeGallery';
 | S/PDIF                  | No                                                                                   |
 | Vumeters                | Yes                                                                                  |
 
-## Hardware Highlights
+### Hardware Highlights
 
 | Role                    | IC Identification                                                                                                                                                          |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -30,7 +30,92 @@ import PhotoSwipeGallery from '@site/src/components/PhotoSwipeGallery';
 | SPI Multiplexer         | Fairchild V138 [74VHC138](https://www.onsemi.com/download/data-sheet/pdf/74vhc138-d.pdf)                                                                                   |
 | Vumeters Shift Register | Fairchild V595 [74VHC595](https://www.onsemi.com/pdf/datasheet/74vhc595-d.pdf)                                                                                             |
 
-## Photos of its internals
+
+<div class="fuegocable-modding-guide">
+## Guide
+
+### Build firmware and flash it
+
+build firmware and flash it
+
+{/* TODO: completar */}
+
+***
+
+### Prepare xmos board
+
+this guide uses dxio_3w_mc, but other xmos boards could be used, check [docs].
+    add 3.3v regulator as mentioned in [dxio_3w_mc] docs
+    add headers
+flash firmware, throug XTAG or DFU ([dxio dfu section]) (check other boards dfu method)
+remove usb connector
+
+{/* TODO: completar */}
+
+***
+
+### Remove components
+
+desoldar A, B y C
+
+<PhotoSwipeGallery>
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-firstudio-project-top-removables.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-firstudio-project-bottom-removables.webp')} />
+</PhotoSwipeGallery>
+
+***
+
+### Solder wire bridge
+
+soldar puentes detras y poner gotita
+
+<PhotoSwipeGallery>
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-firstudio-project-bottom-wires.webp')} />
+</PhotoSwipeGallery>
+
+***
+
+### Solder wires
+
+soldar cable dupont (S-G-S-G-S) y poner gotita
+solder signals to this pins [dxio_fc_used_pins photo] (midi, spi, reset, shift write enable)
+
+{/* TODO: Agregar pinout dxio. Agregar foto ya soldado y pegado */}
+
+<PhotoSwipeGallery>
+	<NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/fuegocable-presonus-firstudio-project-top-signals-data.webp')} />
+	<NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/fuegocable-presonus-firstudio-project-top-signals-meters-cable.webp')} />
+	<NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/fuegocable-presonus-firstudio-project-top-signals-meters-connector.webp')} />
+	<NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/fuegocable-presonus-firstudio-project-top-signals-under-tcd2210.webp')} />
+</PhotoSwipeGallery>
+
+***
+
+### USB C Connector and mount
+
+print and assemble 3d usb c mount
+solder usb c cable
+pass cable through removed firewire hole and solder it to the xmos board
+
+{/* TODO: Agregar imagenes */}
+
+***
+
+### Final assembling
+
+add double sided tape to fc board
+add double sided tape to 3.3v module
+plug digital audio header
+save removed components in a bag inside interface chassis
+
+{/* TODO: Agregar imagenes */}
+
+***
+</div>
+
+## Additional data
+
+### Photos of its internals
 
 #### PCB version H (labeled as Rev. H)
 
@@ -53,7 +138,7 @@ import PhotoSwipeGallery from '@site/src/components/PhotoSwipeGallery';
 </PhotoSwipeGallery>
 
 
-## Reverse engineered circuit schematic
+### Reverse engineered circuit schematic
 
 An incomplete schematic outline, yet useful for understanding some signals related to the TCD2210 main MCU. You can download the Kicad project (schematic plus some symbols) from [this link](/assets/audio-devices/presonus/firestudio-project/presonus-firestudio-project-reverse-engineering-kicad.zip).
 
@@ -64,16 +149,7 @@ An incomplete schematic outline, yet useful for understanding some signals relat
 <figcaption>Click the image to view it full size</figcaption>
 </figure>
 
-#### Removals and needed signals
-
-<PhotoSwipeGallery containerClassName='photo-swipe-gallery-small-thumbnails'>
-  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-firstudio-project-top-removables.webp')} />
-  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-firstudio-project-top-signals.webp')} />
-  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-firstudio-project-bottom-removables.webp')} />
-  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-firstudio-project-bottom-wires.webp')} />
-</PhotoSwipeGallery>
-
-## TCD2210 TC Applied Techonologies additional documents
+### TCD2210 TC Applied Techonologies additional documents
 
 <StaticDirList directoryPath="assets/tc-applied-technologies" />
 
