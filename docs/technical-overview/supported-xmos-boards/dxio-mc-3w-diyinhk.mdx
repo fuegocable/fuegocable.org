@@ -10,14 +10,15 @@ This board is especially useful because it has a header for connecting an [XMOS 
 
 Each port exposed on a pin of the PCB headers is identified in the silkscreen on the bottom of the PCB. This can be somewhat confusing at first, so the following image aims to clarify the board's pinout.
 
-*TODO: add image of this board pinout (check found bad routing)*
+**Buyer link**: [https://www.diyinhk.com/shop/audio-kits/175-xmos-multichannel-high-quality-usb-tofrom-i2sdsd-spdif-pcb.html](https://www.diyinhk.com/shop/audio-kits/175-xmos-multichannel-high-quality-usb-tofrom-i2sdsd-spdif-pcb.html)
+<br /><small>*(there is no commercial agreement with the manufacturer)*</small>
 
 Currently, the XMOS hardware description for this board, present in the `.xn` file of the fuegocable firmware [dxio_mc_3w.xn](https://github.com/fuegocable/xmos-firmware/blob/master/boards/dxio_mc_3w/src/dxio_mc_3w.xn), defines specific roles for each bit of the available ports according to certain communication buses. This will probably change in the future, because in order for the fuegocable firmware to support multiple boards and their different hardware definitions, it would be preferable to define intermediate constants to configure the hardware for each audio interface in the most flexible and clear way possible.
 
 <PhotoSwipeGallery containerClassName='photo-swipe-gallery-medium-thumbnails'>
-  <NativeIdealImage img={require('ideal-img!/assets/diyinhk/dxio_mc_3w/diyinhk_dxio_mc_3w_headers_id.webp')} alt="presonus-fsp-codec-traces"/>
-  <NativeIdealImage img={require('ideal-img!/assets/diyinhk/dxio_mc_3w/diyinhk_dxio_mc_3w_headers_id.webp')} alt="presonus-fsp-codec-traces"/>
-  <NativeIdealImage img={require('ideal-img!/assets/diyinhk/dxio_mc_3w/diyinhk_dxio_mc_3w_headers_id.webp')} alt="presonus-fsp-codec-traces"/>
+  <NativeIdealImage img={require('ideal-img!/assets/diyinhk/dxio_mc_3w/diyinhk-dxio-mc-3w-photo-from-manufacturer.webp')}/>
+  <NativeIdealImage img={require('ideal-img!/assets/diyinhk/dxio_mc_3w/diyinhk-dxio-mc-3w.webp')}/>
+  <NativeIdealImage img={require('ideal-img!/assets/diyinhk/dxio_mc_3w/diyinhk_dxio_mc_3w_headers_id.webp')}/>
 </PhotoSwipeGallery>
 
 ## Pinout
@@ -79,6 +80,6 @@ Currently, the XMOS hardware description for this board, present in the `.xn` fi
 This board features a header for directly connecting an [XTAG 3](https://www.xmos.com/xa-xtag3) debugger. A VSCode extension, [XTC Tools](https://www.xmos.com/documentation/XM-014363-PC/html/installation/install-configure/install-tools/install_vscode.html), is also available and can be used in conjunction with the debugger to enable easy code testing and development.
 
 <figure>
-<NativeIdealImage img={require('ideal-img!/img/diyinhk-with-xtag.webp')} alt="XTAG debugger connected to DXIO MC 3W board" />
+<NativeIdealImage img={require('ideal-img!/assets/diyinhk/dxio_mc_3w/diyinhk-with-xtag.webp')} alt="XTAG debugger connected to DXIO MC 3W board" />
 <figcaption>XTAG debugger connected to DXIO MC 3W board</figcaption>
 </figure>
