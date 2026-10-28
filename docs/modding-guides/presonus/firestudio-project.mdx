@@ -31,7 +31,6 @@ import PhotoSwipeGallery from '@site/src/components/PhotoSwipeGallery';
 | Vumeters Shift Register | Fairchild V595 [74VHC595](https://www.onsemi.com/pdf/datasheet/74vhc595-d.pdf)                                                                                             |
 
 
-<div class="fuegocable-modding-guide">
 ## Guide
 
 ### Build firmware and flash it
@@ -151,11 +150,20 @@ All but one of the audio bus signals can be tapped from one edge of some specifi
 
 ***
 
-### USB C Connector and mount
+### USB C connector and mount
 
-This interface uses one of the FireWire port openings in the chassis to mount the female USB-C port that connects to the host. [A 3D-printed mount](#) designed for that opening and a specific [female USB-C module](https://es.aliexpress.com/item/1005012109928489.html) is available to download and print. The module fits the chassis opening and the mount, and includes D+ and D- connections as well as resistors between certain USB-C pins to ensure a 5 V supply when using USB-C power sources.
+This interface uses one of the FireWire port openings in the chassis to mount the female USB-C port that connects to the host. A 3D-printed mount designed for that opening and a specific [female USB-C module](https://es.aliexpress.com/item/1005012109928489.html) is available to download and print . The module fits the chassis opening and the mount, and includes D+ and D- connections as well as resistors between certain USB-C pins to ensure a 5V supply when using USB-C power sources. Additionally, this USB-C module features a connector with four small metal tabs prefect to be bent, securing the module inside the 3D-printed mount.
 
-{/* TODO: Agregar imagenes */}
+**3D model of USB C mount to print (3MF)**: [presonus-fsp-usb-c-firewire-mount-v7.3mf](/assets/audio-devices/presonus/firestudio-project/presonus-fsp-usb-c-firewire-mount-v7.3mf)
+
+<PhotoSwipeGallery>
+	<NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-fsp-usb-c-mount-06.webp')} />
+	<NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-fsp-usb-c-mount-01.webp')} />
+	<NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-fsp-usb-c-mount-02.webp')} />
+	<NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-fsp-usb-c-mount-03.webp')} />
+	<NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-fsp-usb-c-mount-04.webp')} />
+	<NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-fsp-usb-c-mount-05.webp')} />
+</PhotoSwipeGallery>
 
 ***
 
@@ -181,7 +189,6 @@ Keep all the removed original components together in a small bag and store it in
 </figure>
 
 ***
-</div>
 
 ## Additional data
 
@@ -213,7 +220,7 @@ Keep all the removed original components together in a small bag and store it in
 An incomplete schematic outline, yet useful for understanding some signals related to the TCD2210 main MCU. You can download the Kicad project (schematic plus some symbols) from [this link](/assets/audio-devices/presonus/firestudio-project/presonus-firestudio-project-reverse-engineering-kicad.zip).
 
 <figure>
-<PhotoSwipeGallery>
+<PhotoSwipeGallery containerClassName='photo-swipe-gallery-container--full-width'>
   <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-fsp-codec-traces.webp')} alt="presonus-fsp-codec-traces"/>
 </PhotoSwipeGallery>
 <figcaption>Click the image to view it full size</figcaption>

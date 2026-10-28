@@ -69,6 +69,12 @@ figure img {
   gap: 1rem;
 }
 
+/* Default tables */
+table td, table th {
+  padding: 0.3rem 1rem;
+  text-align: center;
+}
+
 /* Pinout table */
 .pinout-table-container {
   margin-bottom: var(--ifm-spacing-vertical);
@@ -115,8 +121,8 @@ figure img {
   background-color: rgba(136, 203, 223, 0.425);
 }
 
-/* Modding guide */
-.fuegocable-modding-guide .photo-swipe-gallery-container {
+/* photo-swipe */
+.photo-swipe-gallery-container:not(.photo-swipe-gallery-container--full-width) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
