@@ -1,4 +1,51 @@
-# FP10
+import NativeIdealImage from '@theme/NativeIdealImage'
+import StaticDirList from '@site/src/components/StaticDirList';
+import PhotoSwipeGallery from '@site/src/components/PhotoSwipeGallery';
 
-*TODO: add image and some data of FP10*
-This is a work in progress!
+# FP10 (work-in-progress)
+
+<NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/fp10/presonus-fp10-main.webp')}/>
+
+<br />
+<br />
+
+This audio interface is not yet supported, but work is underway. It is based on a BridgeCo DM1000E chip, the same chip used in other audio interfaces, such as the [**Focusrite Saffire**](/docs/modding-guides/focusrite/saffire.mdx).
+
+No datasheet for this MCU has been found. Although having one would make the process easier, its absence does not prevent reverse engineering from moving forward.
+
+In this case, the goal is also to test the fuegocable modification using a different XMOS board, this time based on the XU208 chip, which is a more affordable option than other boards based on the XUF216. Ideally, we would also be able to develop a footprint emulator to simplify the modification process for this and other interfaces based on the same chip, eliminating the need to solder multiple wires to different points on the PCB.
+
+This is not an immediate task and will take time. However, as progress is made, this page will be updated and further developments will be announced on the fuegocable blog.
+
+### Support table
+
+| Hardware Revision       | PCB 400-FPMAIN (E)                                                                   |
+|-------------------------|--------------------------------------------------------------------------------------|
+| Supported since version | *Not supported yet* |
+| Analog Inputs           | 8 ch                                                                                 |
+| Analog Outputs          | 8 ch                                                                                 |
+| MIDI                    | *Not supported yet*                                                                                  |
+| S/PDIF                  | *Not supported yet*                                                                                   |
+
+### Hardware Highlights
+
+| Role                    | IC Identification                                                                                                                                                          |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Main MCU                | bridgeCo DM1000E-CQL (no datasheet available)                                                                     |
+| Firewire PHY            | Texas Instruments [TSB41AB2](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8889/296_TSB41AB2PAPR.pdf)                                                       |
+| Audio ADC               | (2 x 4 channels) AKM [AK5384VF](https://www.kontest.ru/datasheet/akm/ak5384.pdf)                                                                                |
+| Audio DAC               | (1 x 8 channels) AKM [AK4358VG](https://www.rxelectronics.lv/datasheet/1e/ak4358vq.pdf)                                                                               |
+
+### Photos of its internals (without fuegocable mod)
+
+<PhotoSwipeGallery containerClassName='photo-swipe-gallery-small-thumbnails'>
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/fp10/presonus-fp10-internals-01.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/fp10/presonus-fp10-internals-02.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/fp10/presonus-fp10-internals-03.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/fp10/presonus-fp10-internals-04.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/fp10/presonus-fp10-internals-05.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/fp10/presonus-fp10-internals-06.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/fp10/presonus-fp10-internals-07.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/fp10/presonus-fp10-internals-08.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/fp10/presonus-fp10-internals-09.webp')} />
+</PhotoSwipeGallery>
