@@ -1,4 +1,56 @@
-# Saffire
+import NativeIdealImage from '@theme/NativeIdealImage'
+import StaticDirList from '@site/src/components/StaticDirList';
+import PhotoSwipeGallery from '@site/src/components/PhotoSwipeGallery';
 
-*TODO: add image and some data of Saffire*
-This is a work in progress!
+# Saffire (work-in-progress)
+
+<NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-main.webp')}/>
+
+<br />
+<br />
+
+This audio interface is not yet supported, but work is underway. It is based on a BridgeCo DM1000E chip, the same chip used in other audio interfaces, such as the [**Presonus FP10**](/docs/modding-guides/presonus/fp10.mdx).
+
+No datasheet for this MCU has been found. Although having one would make the process easier, its absence does not prevent reverse engineering from moving forward.
+
+In this case, the goal is also to test the fuegocable modification using a different XMOS board, this time based on the XU208 chip, which is a more affordable option than other boards based on the XUF216. Ideally, we would also be able to develop a footprint emulator to simplify the modification process for this and other interfaces based on the same chip, eliminating the need to solder multiple wires to different points on the PCB.
+
+This is not an immediate task and will take time. However, as progress is made, this page will be updated and further developments will be announced on the fuegocable blog.
+
+### Support table
+
+| Hardware Revision       | PCB 400-FPMAIN (E)  |
+|-------------------------|---------------------|
+| Supported since version | *Not supported yet* |
+| Analog Inputs           | 2 ch                |
+| Analog Outputs          | 8 ch                |
+| MIDI                    | *Not supported yet* |
+| S/PDIF                  | *Not supported yet* |
+
+### Hardware Highlights
+
+| Role         | IC Identification                                                                                                           |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------|
+| Main MCU     | bridgeCo DM1000E-CQL (no datasheet available)                                                                               |
+| Firewire PHY | Texas Instruments [TSB41AB2](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/8889/296_TSB41AB2PAPR.pdf)        |
+| Audio Codec  | (1 x 2in/8out) Cirrus Logic [CS42428-CQZ](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/1/CS42428_Rev05.pdf) |
+| DSP          | Analog Devices [ADSP-BF531](https://www.analog.com/media/en/technical-documentation/data-sheets/adsp-bf531_bf532_bf533.pdf) |
+
+### Photos of its internals (without fuegocable mod)
+
+<PhotoSwipeGallery containerClassName='photo-swipe-gallery-small-thumbnails'>
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-01.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-02.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-03.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-04.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-05.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-06.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-07.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-08.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-09.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-10.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-14.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-11.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-12.webp')} />
+  <NativeIdealImage img={require('ideal-img!/assets/audio-devices/focusrite/saffire/focusrite-saffire-13.webp')} />
+</PhotoSwipeGallery>
