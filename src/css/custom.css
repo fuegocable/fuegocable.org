@@ -71,9 +71,15 @@ figure img {
 
 /* Pinout table */
 .pinout-table-container {
+  margin-bottom: var(--ifm-spacing-vertical);
+}
+.pinout-table-container > div {
   display: flex;
   justify-content: center;
   font-size:0.8rem;
+}
+.pinout-table-container table {
+  margin-bottom: 0;
 }
 .pinout-table-container table td, .pinout-table-container table th {
   padding: 0.1rem 0.5rem;
