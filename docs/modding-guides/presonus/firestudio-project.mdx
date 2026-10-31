@@ -184,6 +184,16 @@ Keep all the removed original components together in a small bag and store it in
 
 ***
 
+### Using it with a computer
+
+The fuegocable XMOS firmware uses XMOS's `lib_xua` library, which provides a comprehensive implementation of USB Audio Class (UAC). Thats because on Linux and OS X, as well as iOS, iPadOS, Android, and any other UAC-compliant host, no additional drivers are required to use the interface.
+
+On Windows, additional drivers are only required to access all 8 input and 8 output channels through ASIO. To achieve this, the [firmware "emulates"](https://github.com/fuegocable/xmos-firmware/blob/master/common/audio_devices/presonus_firestudio_project/audio_device_xua_conf.h) a PreSonus AudioBox 1818 VSL interface. This is why, when you connect a modified interface to a computer, it is recognized as an AudioBox. So, simply install [PreSonus's Universal Control driver](https://intl.presonus.com/es/pages/universal-control), and you should be able to use all analog channels and MIDI ports normally with any application.
+
+If you encounter any undocumented issues with your modified interfaces, please report them by opening an issue in the fuegocable XMOS firmware GitHub repository: [https://github.com/fuegocable/xmos-firmware/issues](https://github.com/fuegocable/xmos-firmware/issues)
+
+***
+
 <figure style={{width: '100%', margin: 0}}>
 <NativeIdealImage img={require('ideal-img!/assets/audio-devices/presonus/firestudio-project/presonus-fsp-modded-back.webp')} alt="fuegocable modded presonus"/>
 </figure>
