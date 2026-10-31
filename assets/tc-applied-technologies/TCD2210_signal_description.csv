@@ -1,0 +1,129 @@
+pin_number,signal,i/o
+1,D0,Bidirectional
+2,D1,Bidirectional
+3,D2,Bidirectional
+4,D3,Bidirectional
+5,D4,Bidirectional
+6,D5,Bidirectional
+7,D6,Bidirectional
+8,D7,Bidirectional
+9,D8,Bidirectional
+10,D9,Bidirectional
+11,D10,Bidirectional
+12,VDD3OP,Power input
+13,VSS3OP,Power input
+14,D11,Bidirectional
+15,D12,Bidirectional
+16,D13,Bidirectional
+17,D14,Bidirectional
+18,D15,Bidirectional
+19,A0,Output
+20,A1,Output
+21,A2,Output
+22,A3,Output
+23,A4,Output
+24,A5,Output
+25,VDD1IH,Power input
+26,VSS3I,Power input
+27,A6,Output
+28,A7,Output
+29,A8,Output
+30,A9,Output
+31,A10,Output
+32,A11,Output
+33,A12,Output
+34,A13,Output
+35,A14,Output
+36,A15,Output
+37,A16,Output
+38,A17,Output
+39,A18,Output
+40,A19,Output
+41,CLKO,Output
+42,RAS*,Output
+43,CAS*,Output
+44,SDRAM_WE,Output
+45,CS1*,Output
+46,SDRAM_DQM0,Output
+47,SDRAM_DQM1,Output
+48,VDD3OP,Power input
+49,VSS3OP,Power input
+50,PLLE,Input
+51,SDRAM_BNK0,Output
+52,SDRAM_BNK1,Output
+53,SCLK,Input
+54,PHD0,Bidirectional
+55,PHD1,Bidirectional
+56,PHD2,Bidirectional
+57,VDD1IH,Power input
+58,VSS3I,Power input
+59,PHD3,Bidirectional
+60,PHD4,Bidirectional
+61,PHD5,Bidirectional
+62,PHD6,Bidirectional
+63,PHD7,Bidirectional
+64,PHCT0,Bidirectional
+65,PHCT1,Bidirectional
+66,PHDI,Input
+67,PHLR,Output
+68,PHLP,Output
+69,PHLO,Input
+70,TEMO,Input
+71,SCMO,Input
+72,RESET*,Input
+73,TMS,Input
+74,TCK,Input
+75,TDI,Input
+76,TDO,Output
+77,TRST* / WCLK_IN0,Bidirectional
+78,EXT_FBR / GPIO4,Bidirectional
+79,EXT_512BR / GPIO5 / WCLK_OUT0,Bidirectional
+80,VDD3OP,Power input
+81,VSS3OP,Power input
+82,PLL_1V8 (AES),Power input
+83,FILTER_AES,Unspecified
+84,PLL_GND (AES),Power input
+85,PLL_GND (CLK_DBL),Power input
+86,PLL_BULK (CLK_DBL),Power input
+87,PLL_1V8 (CLK_DBL),Power input
+88,FILTER_CLK_DBL,Unspecified
+89,PLL_GND (HPLL),Power input
+90,PLL_BULK (HPLL),Power input
+91,FILTER_HPLL,Unspecified
+92,PLL_1V8 (HPLL),Power input
+93,VDD1IH,Power input
+94,VSS3I,Power input
+95,XTAL2,Output
+96,XTAL1,Input
+97,I2C_CLK / SPIA_MOSI,Bidirectional
+98,I2C_DATA / SPIA_CK,Bidirectional
+99,MCK0,Output
+100,FCK0,Output
+101,BCK0,Output
+102,DI0_0,Input
+103,DI0_1,Input
+104,DI0_2,Input
+105,DI0_3,Input
+106,GPIO6 / MCK1,Bidirectional
+107,FCK1 / GPIO7,Bidirectional
+108,BCK1 / GPIO8,Bidirectional
+109,VDD3OP,Power input
+110,VSS3OP,Power input
+111,DO0_0,Output
+112,DO0_1,Output
+113,DO0_2,Output
+114,DO0_3,Output
+115,UART0_TX,Output
+116,UART0_RX,Input
+117,VDD1IH,Power input
+118,VSS3I,Power input
+119,UART1_TX,Output
+120,UART1_RX,Input
+121,CS0*,Output
+122,SRAM_READY / GPIO3,Bidirectional
+123,CS2* / GPIO1 / EN1_A / SPIA_SS,Bidirectional
+124,CS3* / GPIO2 / EN1_B / SPIA_MISO,Bidirectional
+125,SRAM_BS[0],Output
+126,SRAM_BS[1],Output
+127,SRAM_WE*,Output
+128,SRAM_OE*,Output
