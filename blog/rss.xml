@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="rss.xsl"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>fuegocable Blog</title>
+        <link>https://fuegocable.org/blog</link>
+        <description>fuegocable Blog</description>
+        <lastBuildDate>Mon, 02 Nov 2026 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Introducing fuegocable!]]></title>
+            <link>https://fuegocable.org/blog/introducing-fuegocable</link>
+            <guid>https://fuegocable.org/blog/introducing-fuegocable</guid>
+            <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Hi! Bomba here.]]></description>
+            <content:encoded><![CDATA[<figure style="width:100%;margin:0"><picture class="native-ideal-img" style="--lqip:url(data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAUABUB8JZACdADze7mIAP6jAu+S5+e8Ks57hys0q9U4xMK0NzDMAAA=)"><img loading="lazy" srcset="https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-f2b68-650.webp 650w, https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-76fac-950.webp 950w, https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-2f8f3-1000.webp 1000w" sizes="auto" width="1000" height="285" alt="fuegocable modded presonus"></picture></figure>
+<br>
+<p>Hi! Bomba here.</p>
+<p>After many months of work, I'm finally publishing <strong>fuegocable</strong>, an open-source project that aims to provide everything needed to give old, obsolete FireWire audio interfaces a new life as USB audio interfaces.</p>
+<p>Some of these interfaces are sitting around collecting dust, even though they're still great pieces of technology, with multiple analog channels, preamps, and all kinds of connectivity. Maybe you have no trouble using your FireWire interface because you have a computer with the right port and the exact drivers needed to make it work properly. But that's not always the case. Some manufacturers have abandoned driver development, leaving users with no choice but to stick to obsolete operating systems or to desktop computers because modern laptops don’t have a FireWire port.</p>
+<p>The idea behind this project is to overcome that obstacle. For now, <a class="" href="https://fuegocable.org/docs/intro/firewire-usage">the best approach</a> — the most stable one, and probably the one that can be most easily adapted to different interface models — is to modify the interface itself by replacing its main microcontroller with an XMOS chip capable of implementing USB Audio.</p>
+<p>This new microcontroller needs to communicate with the audio codecs, user interface components (such as rotary encoders, LEDs, and displays), MIDI ports, digital audio ports, and so on.</p>
+<p>All of this requires firmware capable of handling those tasks, and the idea is for fuegocable to become a place where that firmware can be developed. The project's <a href="https://github.com/fuegocable/xmos-firmware" target="_blank" rel="noopener noreferrer" class="">GitHub repository</a> already contains the first version of the firmware, which currently implements the features required by the first modified interface: a <a class="" href="https://fuegocable.org/docs/modding-guides/presonus/firestudio-project">PreSonus FireStudio Project</a>.</p>
+<p>More interfaces could be modified in the future. Each one needs to be reverse-engineered, analyzed, and modified. fuegocable could become a place where other interested people can contribute to these processes.</p>
+<p>Checkout the project's documentation to known <a class="" href="https://fuegocable.org/docs/what-is-fuegocable">what is fuegocable?</a>.</p>
+<p>There's a lot to create and develop, and hopefully the future will bring us stable, scalable solutions for modifying many more interfaces and keeping the music alive with them!</p>
+<p>See you soon!</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>

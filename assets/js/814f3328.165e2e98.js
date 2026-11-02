@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_website=self.webpackChunkmy_website||[]).push([["1833"],{5513(e){e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Introducing fuegocable!","permalink":"/blog/introducing-fuegocable","unlisted":false,"date":"2026-11-02T00:00:00.000Z"}]}')}}]);

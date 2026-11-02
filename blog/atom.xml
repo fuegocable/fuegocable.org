@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://fuegocable.org/blog</id>
+    <title>fuegocable Blog</title>
+    <updated>2026-11-02T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://fuegocable.org/blog"/>
+    <subtitle>fuegocable Blog</subtitle>
+    <icon>https://fuegocable.org/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Introducing fuegocable!]]></title>
+        <id>https://fuegocable.org/blog/introducing-fuegocable</id>
+        <link href="https://fuegocable.org/blog/introducing-fuegocable"/>
+        <updated>2026-11-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Hi! Bomba here.]]></summary>
+        <content type="html"><![CDATA[<figure style="width:100%;margin:0"><picture class="native-ideal-img" style="--lqip:url(data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAUABUB8JZACdADze7mIAP6jAu+S5+e8Ks57hys0q9U4xMK0NzDMAAA=)"><img loading="lazy" srcset="https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-f2b68-650.webp 650w, https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-76fac-950.webp 950w, https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-2f8f3-1000.webp 1000w" sizes="auto" width="1000" height="285" alt="fuegocable modded presonus"></picture></figure>
+<br>
+<p>Hi! Bomba here.</p>
+<p>After many months of work, I'm finally publishing <strong>fuegocable</strong>, an open-source project that aims to provide everything needed to give old, obsolete FireWire audio interfaces a new life as USB audio interfaces.</p>
+<p>Some of these interfaces are sitting around collecting dust, even though they're still great pieces of technology, with multiple analog channels, preamps, and all kinds of connectivity. Maybe you have no trouble using your FireWire interface because you have a computer with the right port and the exact drivers needed to make it work properly. But that's not always the case. Some manufacturers have abandoned driver development, leaving users with no choice but to stick to obsolete operating systems or to desktop computers because modern laptops don’t have a FireWire port.</p>
+<p>The idea behind this project is to overcome that obstacle. For now, <a class="" href="https://fuegocable.org/docs/intro/firewire-usage">the best approach</a> — the most stable one, and probably the one that can be most easily adapted to different interface models — is to modify the interface itself by replacing its main microcontroller with an XMOS chip capable of implementing USB Audio.</p>
+<p>This new microcontroller needs to communicate with the audio codecs, user interface components (such as rotary encoders, LEDs, and displays), MIDI ports, digital audio ports, and so on.</p>
+<p>All of this requires firmware capable of handling those tasks, and the idea is for fuegocable to become a place where that firmware can be developed. The project's <a href="https://github.com/fuegocable/xmos-firmware" target="_blank" rel="noopener noreferrer" class="">GitHub repository</a> already contains the first version of the firmware, which currently implements the features required by the first modified interface: a <a class="" href="https://fuegocable.org/docs/modding-guides/presonus/firestudio-project">PreSonus FireStudio Project</a>.</p>
+<p>More interfaces could be modified in the future. Each one needs to be reverse-engineered, analyzed, and modified. fuegocable could become a place where other interested people can contribute to these processes.</p>
+<p>Checkout the project's documentation to known <a class="" href="https://fuegocable.org/docs/what-is-fuegocable">what is fuegocable?</a>.</p>
+<p>There's a lot to create and develop, and hopefully the future will bring us stable, scalable solutions for modifying many more interfaces and keeping the music alive with them!</p>
+<p>See you soon!</p>]]></content>
+        <author>
+            <name>bomba (bonsembiante)</name>
+            <uri>https://bonsembiante.hashnode.dev/</uri>
+        </author>
+    </entry>
+</feed>
