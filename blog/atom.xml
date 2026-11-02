@@ -12,7 +12,7 @@
         <id>https://fuegocable.org/blog/introducing-fuegocable</id>
         <link href="https://fuegocable.org/blog/introducing-fuegocable"/>
         <updated>2026-11-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Hi! Bomba here.]]></summary>
+        <summary type="html"><![CDATA[After many months of work, I'm finally publishing **fuegocable**, an open-source project that aims to provide everything needed to give old, obsolete FireWire audio interfaces a new life as USB audio interfaces.]]></summary>
         <content type="html"><![CDATA[<br>
 <div class="video-container"><iframe src="https://www.youtube.com/embed/U4xUyzRhirs?si=y1MLYIt5izBsaK6K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
 <br>
