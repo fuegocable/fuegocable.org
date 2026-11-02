@@ -104,11 +104,15 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Site',
           items: [
             {
               label: 'Docs',
               to: '/docs/what-is-fuegocable',
+            },
+            {
+              label: 'Blog',
+              to: '/blog',
             },
           ],
         },
@@ -116,16 +120,12 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Reddit',
+              href: 'https://www.reddit.com/r/fuegocable/',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'Mastodon',
+              href: 'https://mastodon.social/@fuegocable',
             },
           ],
         },
@@ -133,17 +133,17 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
+              label: 'Edit this web',
+              href: 'https://github.com/fuegocable/fuegocable.org',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'XMOS firmware',
+              href: 'https://github.com/fuegocable/xmos-firmware',
             },
           ],
         },
       ],
-      copyright: `fuegocable ${new Date().getFullYear()} - free for all - built with docusaurus.`,
+      copyright: `fuegocable is open-source - <a href="https://en.wikipedia.org/wiki/Right_to_repair" target="_blank">right to repair</a> - built with docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
