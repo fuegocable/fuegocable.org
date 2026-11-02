@@ -14,7 +14,8 @@
             <guid>https://fuegocable.org/blog/introducing-fuegocable</guid>
             <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[Hi! Bomba here.]]></description>
-            <content:encoded><![CDATA[<figure style="width:100%;margin:0"><picture class="native-ideal-img" style="--lqip:url(data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAUABUB8JZACdADze7mIAP6jAu+S5+e8Ks57hys0q9U4xMK0NzDMAAA=)"><img loading="lazy" srcset="https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-f2b68-650.webp 650w, https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-76fac-950.webp 950w, https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-2f8f3-1000.webp 1000w" sizes="auto" width="1000" height="285" alt="fuegocable modded presonus"></picture></figure>
+            <content:encoded><![CDATA[<br>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/U4xUyzRhirs?si=y1MLYIt5izBsaK6K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
 <br>
 <p>Hi! Bomba here.</p>
 <p>After many months of work, I'm finally publishing <strong>fuegocable</strong>, an open-source project that aims to provide everything needed to give old, obsolete FireWire audio interfaces a new life as USB audio interfaces.</p>
@@ -25,7 +26,9 @@
 <p>More interfaces could be modified in the future. Each one needs to be reverse-engineered, analyzed, and modified. fuegocable could become a place where other interested people can contribute to these processes.</p>
 <p>Checkout the project's documentation to known <a class="" href="https://fuegocable.org/docs/what-is-fuegocable">what is fuegocable?</a>.</p>
 <p>There's a lot to create and develop, and hopefully the future will bring us stable, scalable solutions for modifying many more interfaces and keeping the music alive with them!</p>
-<p>See you soon!</p>]]></content:encoded>
+<p>See you soon!</p>
+<br>
+<figure style="width:100%;margin:0"><picture class="native-ideal-img" style="--lqip:url(data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACwAQCdASoQAAUABUB8JZACdADze7mIAP6jAu+S5+e8Ks57hys0q9U4xMK0NzDMAAA=)"><img loading="lazy" srcset="https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-f2b68-650.webp 650w, https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-76fac-950.webp 950w, https://fuegocable.org/assets/native-ideal-image/presonus-fsp-modded-back-2f8f3-1000.webp 1000w" sizes="auto" width="1000" height="285" alt="fuegocable modded presonus"></picture></figure>]]></content:encoded>
         </item>
     </channel>
 </rss>
